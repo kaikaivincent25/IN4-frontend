@@ -1,0 +1,4 @@
+export const BRAND_PHOTOS = {
+  knowledge: 'https://images.openai.com/static-rsc-4/nUEzEloMDcsDclNZeDeFcqR3jVq8GfHLJ4jqUpN2iNEofBmVZ6qRcLBW77z_2wlS6gEB6UHoNJyTEqSqL6uJCYIz9flJl1L4bR2dVU38Vj1MzN5nHs51VYPJA7ZQZzoV9ub0GBbUyAuoyg8cgfy-lCcqXE_xVNePTdE9hqxxWbo36HjH52s_30TLEEXMnjLD?purpose=fullsize',
+  community: 'https://images.openai.com/static-rsc-4/dlELN8VnHy0qvssLmU6EdeCyfEB6JFRqcE4v3MktKBaBCum83JiXsZzp-ynrDzmOw2EP901SWSeYMUaEXEbGrPzxfBBWdCm1qZsMR0yDkKmfT3arX4coOiZ7GunYaH5on8sMPG4_7SGK-xrtHZTgsPu2N0xmPjm3wtQ0d9GskVMUtcd9ht3gfg-HNsdZapcW?purpose=fullsize',
+};

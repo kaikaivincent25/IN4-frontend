@@ -19,6 +19,21 @@ import { authAPI, storeAuthTokens, clearAuthTokens, getAccessToken } from '../ap
 // Create context (empty initially, populated by provider)
 export const AuthContext = React.createContext();
 
+const getAuthErrorMessage = (error, action) => {
+  const data = error.response?.data;
+  if (typeof data?.message === 'string') return data.message;
+  if (typeof data?.detail === 'string') return data.detail;
+
+  const firstError = data?.errors && Object.values(data.errors)[0];
+  if (Array.isArray(firstError) && typeof firstError[0] === 'string') return firstError[0];
+  if (typeof firstError === 'string') return firstError;
+
+  if (!error.response) {
+    return 'Cannot reach the IN4 server. Check that the backend is running and that EXPO_PUBLIC_API_URL points to your computer.';
+  }
+  return `${action} failed. Please try again.`;
+};
+
 // ===== INITIAL STATE =====
 
 /**
@@ -178,14 +193,9 @@ export const AuthProvider = ({ children }) => {
 
         return { success: true };
       } catch (error) {
-        // Handle login error
-        const message = error.response?.data?.errors?.non_field_errors?.[0]
-          || error.response?.data?.message
-          || 'Login failed';
-
         return {
           success: false,
-          error: message,
+          error: getAuthErrorMessage(error, 'Login'),
         };
       }
     }, []),
@@ -217,26 +227,9 @@ export const AuthProvider = ({ children }) => {
 
         return { success: true };
       } catch (error) {
-        const responseData = error.response?.data;
-        const errorData = responseData?.errors;
-        const firstErrorKey = errorData && typeof errorData === 'object'
-          ? Object.keys(errorData)[0]
-          : null;
-
-        if (firstErrorKey) {
-          const firstError = errorData[firstErrorKey];
-          const message = Array.isArray(firstError) ? firstError[0] : firstError;
-          if (typeof message === 'string' && message.length > 0) {
-            return { success: false, error: message };
-          }
-        }
-
         return {
           success: false,
-          error: responseData?.message
-            || responseData?.detail
-            || error.message
-            || 'Registration failed',
+          error: getAuthErrorMessage(error, 'Registration'),
         };
       }
     }, []),

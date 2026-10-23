@@ -5,11 +5,10 @@ import * as SecureStore from 'expo-secure-store';
 
 // ===== CONFIG =====
 
-// Change this to your backend URL
-// In dev: http://192.168.0.105:8000 (your machine's IP)
-// In prod: https://api.in4.app
-const API_BASE_URL = 'http://10.3.1.31:8000';
-//const API_BASE_URL = 'http://10.0.2.2:8000'   //Android studio emulator 
+// Android Studio emulator reaches the host machine at 10.0.2.2.
+// For a physical device, set EXPO_PUBLIC_API_URL to your computer's LAN URL
+// (for example, http://192.168.1.20:8000) in the frontend .env file.
+const API_BASE_URL = (process.env.EXPO_PUBLIC_API_URL || 'http://10.0.2.2:8000').replace(/\/$/, '');
 
 const TIMEOUT = 10000; // 10 second timeout for requests
 
@@ -90,9 +89,12 @@ client.interceptors.response.use(
   (response) => response,
   async (error) => {
     const originalRequest = error.config;
+    const isAuthenticationRequest = /\/auth\/(login|register|token\/refresh)\/$/.test(
+      originalRequest?.url || ''
+    );
     
     // If 401 and haven't already tried to refresh
-    if (error.response?.status === 401 && !originalRequest._retry) {
+    if (error.response?.status === 401 && originalRequest && !isAuthenticationRequest && !originalRequest._retry) {
       originalRequest._retry = true;
       
       try {

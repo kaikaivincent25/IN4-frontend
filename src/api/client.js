@@ -8,7 +8,7 @@ import * as SecureStore from 'expo-secure-store';
 // Android Studio emulator reaches the host machine at 10.0.2.2.
 // For a physical device, set EXPO_PUBLIC_API_URL to your computer's LAN URL
 // (for example, http://192.168.1.20:8000) in the frontend .env file.
-const API_BASE_URL = (process.env.EXPO_PUBLIC_API_URL || 'http://10.0.2.2:8000').replace(/\/$/, '');
+const API_BASE_URL = (process.env.EXPO_PUBLIC_API_URL || 'http://10.3.0.232:8000').replace(/\/$/, '');
 
 const TIMEOUT = 10000; // 10 second timeout for requests
 

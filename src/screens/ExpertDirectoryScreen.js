@@ -122,8 +122,8 @@ export default function ExpertDirectoryScreen({ navigation }) {
           <FlatList horizontal data={PRACTICE_FILTERS} keyExtractor={(item) => item.value || 'all'} showsHorizontalScrollIndicator={false} contentContainerStyle={styles.filters} renderItem={({ item }) => <TouchableOpacity onPress={() => setProfession(item.value)} style={[styles.filter, profession === item.value && styles.filterActive]}><Text style={[styles.filterText, profession === item.value && styles.filterTextActive]}>{item.label}</Text></TouchableOpacity>} />
           <Text style={styles.sectionTitle}>Verified professionals</Text>
         </>}
-        ListEmptyComponent={loading ? <ActivityIndicator style={styles.empty} size="large" color="#087B84" /> : <View style={styles.empty}><Text style={styles.emptyTitle}>{error ? 'Directory unavailable' : 'No professionals found yet'}</Text><Text style={styles.emptyText}>{error || 'Try a different search, or check back as more professionals complete verification.'}</Text><TouchableOpacity onPress={() => { setRefreshing(true); loadExperts(); }}><Text style={styles.retry}>Try again</Text></TouchableOpacity></View>}
-        refreshControl={<RefreshControl refreshing={refreshing} onRefresh={() => { setRefreshing(true); loadExperts(); }} tintColor="#087B84" />}
+        ListEmptyComponent={loading ? <ActivityIndicator style={styles.empty} size="large" color="#008A78" /> : <View style={styles.empty}><Text style={styles.emptyTitle}>{error ? 'Directory unavailable' : 'No professionals found yet'}</Text><Text style={styles.emptyText}>{error || 'Try a different search, or check back as more professionals complete verification.'}</Text><TouchableOpacity onPress={() => { setRefreshing(true); loadExperts(); }}><Text style={styles.retry}>Try again</Text></TouchableOpacity></View>}
+        refreshControl={<RefreshControl refreshing={refreshing} onRefresh={() => { setRefreshing(true); loadExperts(); }} tintColor="#008A78" />}
         />
     </SafeAreaView>
   );
@@ -138,9 +138,9 @@ function getGreeting() {
 
 const styles = StyleSheet.create({
   screen: { flex: 1, backgroundColor: THEME.BACKGROUND }, content: { paddingHorizontal: 20, paddingTop: 0, paddingBottom: 28, flexGrow: 1 },
-  heroPanel: { marginHorizontal: -20, paddingHorizontal: 24, paddingTop: 18, paddingBottom: 24, marginBottom: 20, backgroundColor: '#173B59', borderBottomLeftRadius: 26, borderBottomRightRadius: 26 },
+  heroPanel: { marginHorizontal: -20, paddingHorizontal: 24, paddingTop: 18, paddingBottom: 24, marginBottom: 20, backgroundColor: '#082F80', borderBottomLeftRadius: 26, borderBottomRightRadius: 26 },
   heroTopRow: { flexDirection: 'row', alignItems: 'center', marginBottom: 22 },
-  heroMark: { width: 38, height: 38, borderRadius: 12, alignItems: 'center', justifyContent: 'center', backgroundColor: '#286A9A' },
+  heroMark: { width: 38, height: 38, borderRadius: 12, alignItems: 'center', justifyContent: 'center', backgroundColor: '#075BDB' },
   heroEyebrow: { marginLeft: 11, flex: 1, color: '#C6D9E9', fontSize: 10, fontWeight: '800', letterSpacing: 1.3 },
   heroSeal: { width: 34, height: 34, borderRadius: 17, borderWidth: 1, borderColor: 'rgba(198,217,233,0.3)', alignItems: 'center', justifyContent: 'center' },
   heroGreeting: { color: '#BBD0E1', fontSize: 13, fontWeight: '600', marginBottom: 5 },

@@ -423,7 +423,7 @@ const styles = StyleSheet.create({
   avatarContainer: { width: 88, height: 88, borderRadius: 44, backgroundColor: '#D9E7E6', justifyContent: 'center', alignItems: 'center', marginBottom: 17, borderWidth: 3, borderColor: '#FFFFFF' },
   expertAvatarImage: { width: '100%', height: '100%', borderRadius: 44 },
   avatarText: { fontFamily: FONT_DISPLAY, fontSize: 40, fontWeight: '700', color: '#102A43' },
-  verifiedBadge: { position: 'absolute', bottom: 2, right: 2, backgroundColor: '#1A7A62', width: 28, height: 28, borderRadius: 14, justifyContent: 'center', alignItems: 'center', borderWidth: 2.5, borderColor: '#FFFFFF' },
+  verifiedBadge: { position: 'absolute', bottom: 2, right: 2, backgroundColor: '#008A64', width: 28, height: 28, borderRadius: 14, justifyContent: 'center', alignItems: 'center', borderWidth: 2.5, borderColor: '#FFFFFF' },
   expertName: { fontFamily: FONT_DISPLAY, fontSize: 34, fontWeight: '700', color: '#FFFFFF', marginBottom: 7, textAlign: 'center' },
   profession: { fontSize: 15, color: '#D5E2E0', fontWeight: '600', marginBottom: 15, textAlign: 'center', letterSpacing: 0.2 },
   organizationContainer: { flexDirection: 'row', alignItems: 'center', gap: 8, backgroundColor: 'rgba(255,255,255,0.08)', paddingHorizontal: 14, paddingVertical: 8, borderRadius: 12, borderWidth: 1, borderColor: 'rgba(255,255,255,0.15)' },
@@ -482,7 +482,7 @@ const styles = StyleSheet.create({
 
   errorTitle: { fontSize: 22, fontWeight: '800', color: THEME.TEXT_PRIMARY, marginBottom: 10 },
   errorText: { fontSize: 15, color: THEME.TEXT_SECONDARY, textAlign: 'center', marginBottom: 28 },
-  primaryButton: { backgroundColor: '#087B84', paddingHorizontal: 28, paddingVertical: 15, borderRadius: 14 },
+  primaryButton: { backgroundColor: '#008A78', paddingHorizontal: 28, paddingVertical: 15, borderRadius: 14 },
   primaryButtonText: { color: '#FFFFFF', fontWeight: '700', fontSize: 16 },
 });
 

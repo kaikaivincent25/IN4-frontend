@@ -359,14 +359,14 @@ const ChangePasswordScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F2F7FC',
+    backgroundColor: '#F5F9FE',
   },
   header: {
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 20,
     paddingVertical: 14,
-    backgroundColor: '#173B59',
+    backgroundColor: '#082F80',
     borderBottomWidth: 1,
     borderBottomColor: '#31536D',
   },
@@ -397,12 +397,12 @@ const styles = StyleSheet.create({
     fontFamily: FONT_DISPLAY,
     fontSize: 22,
     fontWeight: '800',
-    color: '#07152E',
+    color: '#102B54',
     marginBottom: 10,
   },
   introText: {
     fontSize: 15,
-    color: '#40536B',
+    color: '#4F6682',
     lineHeight: 23,
   },
 
@@ -413,7 +413,7 @@ const styles = StyleSheet.create({
   label: {
     fontSize: 14,
     fontWeight: '700',
-    color: '#07152E',
+    color: '#102B54',
     marginBottom: 10,
   },
   errorLabel: {
@@ -436,7 +436,7 @@ const styles = StyleSheet.create({
   input: {
     flex: 1,
     fontSize: 15,
-    color: '#07152E',
+    color: '#102B54',
     padding: 0,
   },
   inputError: {
@@ -491,7 +491,7 @@ const styles = StyleSheet.create({
   },
   requirementText: {
     fontSize: 12,
-    color: '#40536B',
+    color: '#4F6682',
   },
 
   // ── MATCH INDICATOR ──
@@ -517,12 +517,12 @@ const styles = StyleSheet.create({
   matchText: {
     fontSize: 12,
     fontWeight: '600',
-    color: '#40536B',
+    color: '#4F6682',
   },
 
   // ── BUTTON ──
   changeButton: {
-    backgroundColor: '#087B84',
+    backgroundColor: '#008A78',
     borderRadius: 14,
     paddingVertical: 16,
     alignItems: 'center',
@@ -555,7 +555,7 @@ const styles = StyleSheet.create({
   securityNoteText: {
     flex: 1,
     fontSize: 13,
-    color: '#40536B',
+    color: '#4F6682',
     lineHeight: 19,
   },
 });

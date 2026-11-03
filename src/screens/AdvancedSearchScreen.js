@@ -403,14 +403,14 @@ const AdvancedSearchScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F2F7FC',
+    backgroundColor: '#F5F9FE',
   },
   header: {
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 20,
     paddingVertical: 14,
-    backgroundColor: '#173B59',
+    backgroundColor: '#082F80',
     borderBottomWidth: 1,
     borderBottomColor: '#31536D',
   },
@@ -440,7 +440,7 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 13,
     fontWeight: '800',
-    color: '#40536B',
+    color: '#4F6682',
     marginBottom: 14,
     textTransform: 'uppercase',
     letterSpacing: 0.8,
@@ -464,7 +464,7 @@ const styles = StyleSheet.create({
   searchInput: {
     flex: 1,
     fontSize: 15,
-    color: '#07152E',
+    color: '#102B54',
   },
 
   // ── CATEGORY GRID ──
@@ -485,8 +485,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#F3F6FA',
   },
   filterChipActive: {
-    backgroundColor: '#087B84',
-    borderColor: '#12396B',
+    backgroundColor: '#008A78',
+    borderColor: '#082F80',
   },
   filterChipIcon: {
     fontSize: 14,
@@ -494,7 +494,7 @@ const styles = StyleSheet.create({
   filterChipText: {
     fontSize: 12,
     fontWeight: '700',
-    color: '#07152E',
+    color: '#102B54',
   },
   filterChipTextActive: {
     color: '#FFFFFF',
@@ -515,13 +515,13 @@ const styles = StyleSheet.create({
     backgroundColor: '#F3F6FA',
   },
   sortChipActive: {
-    backgroundColor: '#087B84',
-    borderColor: '#12396B',
+    backgroundColor: '#008A78',
+    borderColor: '#082F80',
   },
   sortChipText: {
     fontSize: 12,
     fontWeight: '700',
-    color: '#07152E',
+    color: '#102B54',
   },
   sortChipTextActive: {
     color: '#FFFFFF',
@@ -552,7 +552,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingVertical: 12,
     fontSize: 15,
-    color: '#07152E',
+    color: '#102B54',
   },
   rangeSeparator: {
     fontSize: 16,
@@ -568,7 +568,7 @@ const styles = StyleSheet.create({
   },
   searchButton: {
     flex: 1,
-    backgroundColor: '#087B84',
+    backgroundColor: '#008A78',
     borderRadius: 14,
     paddingVertical: 16,
     alignItems: 'center',
@@ -588,7 +588,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   clearButtonText: {
-    color: '#07152E',
+    color: '#102B54',
     fontSize: 16,
     fontWeight: '700',
   },
@@ -600,7 +600,7 @@ const styles = StyleSheet.create({
   resultsTitle: {
     fontSize: 14,
     fontWeight: '700',
-    color: '#40536B',
+    color: '#4F6682',
     marginBottom: 14,
   },
   resultsList: {
@@ -609,7 +609,7 @@ const styles = StyleSheet.create({
   resultCard: {
     backgroundColor: 'transparent',
     borderBottomWidth: 1,
-    borderBottomColor: 'rgba(18,57,107,0.12)',
+    borderBottomColor: 'rgba(8,47,128,0.12)',
     overflow: 'hidden',
   },
   resultCardBody: {
@@ -619,7 +619,7 @@ const styles = StyleSheet.create({
   resultCategory: {
     fontSize: 10,
     fontWeight: '800',
-    color: '#12396B',
+    color: '#082F80',
     textTransform: 'uppercase',
     letterSpacing: 0.6,
     marginBottom: 5,
@@ -627,13 +627,13 @@ const styles = StyleSheet.create({
   resultTitle: {
     fontSize: 14,
     fontWeight: '800',
-    color: '#07152E',
+    color: '#102B54',
     marginBottom: 7,
     lineHeight: 21,
   },
   resultSummary: {
     fontSize: 12,
-    color: '#40536B',
+    color: '#4F6682',
     lineHeight: 18,
     marginBottom: 10,
   },

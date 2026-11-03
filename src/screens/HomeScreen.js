@@ -276,7 +276,7 @@ const HomeScreen = ({ navigation }) => {
     return (
       <SafeAreaView style={styles.container}>
         <View style={styles.loadingContainer}>
-          <ActivityIndicator size="large" color="#12396B" />
+          <ActivityIndicator size="large" color="#082F80" />
           <Text style={styles.loadingText}>Loading articles…</Text>
         </View>
       </SafeAreaView>
@@ -348,7 +348,7 @@ const HomeScreen = ({ navigation }) => {
           accessibilityLabel="Open advanced search filters"
           hitSlop={6}
         >
-          <Feather name="sliders" size={18} color="#12396B" />
+          <Feather name="sliders" size={18} color="#082F80" />
         </TouchableOpacity>
       </View>
 
@@ -413,7 +413,7 @@ const HomeScreen = ({ navigation }) => {
           <RefreshControl
             refreshing={refreshing}
             onRefresh={handleRefresh}
-            tintColor="#12396B"
+            tintColor="#082F80"
           />
         }
         onEndReached={handleLoadMore}
@@ -422,7 +422,7 @@ const HomeScreen = ({ navigation }) => {
         ListFooterComponent={
           hasMore && !refreshing && loading ? (
             <View style={styles.loadMoreContainer}>
-              <ActivityIndicator color="#12396B" size="small" />
+              <ActivityIndicator color="#082F80" size="small" />
             </View>
           ) : null
         }
@@ -575,13 +575,13 @@ const styles = StyleSheet.create({
   featuredImagePlaceholder: {
     width: '100%',
     height: 190,
-    backgroundColor: '#DDF1F0',
+    backgroundColor: '#DDF5EC',
     justifyContent: 'flex-end',
     padding: 12,
   },
   featuredBadgeWrap: { alignSelf: 'flex-start' },
   featuredBadge: {
-    backgroundColor: '#087B84',
+    backgroundColor: '#008A78',
     paddingHorizontal: 10,
     paddingVertical: 4,
     borderRadius: 20,
@@ -592,7 +592,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     letterSpacing: 0.3,
   },
-  featuredBody: { paddingHorizontal: 2, paddingTop: 17, paddingBottom: 19, borderBottomWidth: 1, borderBottomColor: 'rgba(18,57,107,0.12)' },
+  featuredBody: { paddingHorizontal: 2, paddingTop: 17, paddingBottom: 19, borderBottomWidth: 1, borderBottomColor: 'rgba(8,47,128,0.12)' },
   featuredCat: {
     fontSize: 11,
     fontWeight: '800',
@@ -649,18 +649,18 @@ const styles = StyleSheet.create({
     marginHorizontal: 24,
     paddingVertical: 13,
     borderBottomWidth: 1,
-    borderBottomColor: 'rgba(18,57,107,0.10)',
+    borderBottomColor: 'rgba(8,47,128,0.10)',
   },
   listCardImage: {
     width: 92,
     height: 112,
-    backgroundColor: 'rgba(8,123,132,0.10)',
+    backgroundColor: 'rgba(0,138,120,0.10)',
     borderRadius: 0,
   },
   listCardImagePlaceholder: {
     width: 92,
     height: 112,
-    backgroundColor: 'rgba(8,123,132,0.08)',
+    backgroundColor: 'rgba(0,138,120,0.08)',
     borderRadius: 0,
   },
   listCardBody: {
@@ -672,7 +672,7 @@ const styles = StyleSheet.create({
   listCardCat: {
     fontSize: 10,
     fontWeight: '800',
-    color: '#12396B',
+    color: '#082F80',
     textTransform: 'uppercase',
     letterSpacing: 0.6,
     marginBottom: 4,
@@ -718,7 +718,7 @@ const styles = StyleSheet.create({
   errorContainer: { flex: 1, justifyContent: 'center', alignItems: 'center', paddingHorizontal: 24 },
   errorTitle: { fontSize: 17, fontWeight: '700', color: THEME.TEXT_PRIMARY, marginTop: 16, marginBottom: 8 },
   errorText: { fontSize: 14, color: THEME.TEXT_SECONDARY, textAlign: 'center', marginBottom: 24 },
-  retryButton: { backgroundColor: '#087B84', paddingHorizontal: 24, paddingVertical: 13, borderRadius: 14 },
+  retryButton: { backgroundColor: '#008A78', paddingHorizontal: 24, paddingVertical: 13, borderRadius: 14 },
   retryButtonText: { color: '#FFFFFF', fontWeight: '600', fontSize: 14 },
   loadMoreContainer: { paddingVertical: 20, alignItems: 'center' },
   errorBanner: {
@@ -732,7 +732,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   errorBannerText: { color: THEME.TEXT_PRIMARY, fontSize: 12, flex: 1, fontWeight: '500' },
-  errorBannerAction: { color: '#12396B', fontWeight: '600', fontSize: 12, marginLeft: 12 },
+  errorBannerAction: { color: '#082F80', fontWeight: '600', fontSize: 12, marginLeft: 12 },
 });
 
 export default HomeScreen;

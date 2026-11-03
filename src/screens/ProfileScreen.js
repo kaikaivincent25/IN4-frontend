@@ -43,19 +43,19 @@ import { COLORS as THEME } from '../theme/colors';
 
 // ── DESIGN TOKENS (shared with SavedArticlesScreen) ──
 const COLORS = {
-  INK: '#F2F7FC',
+  INK: '#F5F9FE',
   SURFACE: '#FFFFFF',
   SURFACE_RAISED: '#E9F2FA',
   BORDER: '#D4E2EF',
-  GOLD: '#286A9A',
-  GOLD_DIM: '#E5F1FA',
-  TEAL: '#287B93',
+  GOLD: '#075BDB',
+  GOLD_DIM: '#E4F2FC',
+  TEAL: '#009E73',
   TEAL_DIM: '#E5F3F7',
   CORAL: THEME.ERROR_RED,
   AMBER: THEME.WARNING,
-  TEXT_PRIMARY: '#173B59',
-  TEXT_SECONDARY: '#526F86',
-  TEXT_MUTED: '#71889B',
+  TEXT_PRIMARY: '#082F80',
+  TEXT_SECONDARY: '#4F6682',
+  TEXT_MUTED: '#71849C',
 };
 
 const ProfileScreen = ({ navigation }) => {
@@ -507,7 +507,7 @@ const ProfileScreen = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: COLORS.INK },
-  header: { paddingHorizontal: 24, paddingTop: 22, paddingBottom: 22, backgroundColor: '#173B59' },
+  header: { paddingHorizontal: 24, paddingTop: 22, paddingBottom: 22, backgroundColor: '#082F80' },
   headerEyebrow: { color: '#9ED8E8', fontSize: 10, fontWeight: '900', letterSpacing: 1.5, marginBottom: 3 },
   headerTitle: { fontFamily: FONT_DISPLAY, fontSize: 32, fontWeight: '800', color: '#FFFFFF', letterSpacing: -0.5 },
   headerSubtitle: { color: '#D2E1ED', fontSize: 13, marginTop: 4, lineHeight: 19 },

@@ -659,14 +659,14 @@ const ArticlePublishScreen = ({ navigation, route }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F2F7FC',
+    backgroundColor: '#F5F9FE',
   },
   header: {
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 20,
     paddingVertical: 14,
-    backgroundColor: '#173B59',
+    backgroundColor: '#082F80',
     borderBottomWidth: 1,
     borderBottomColor: '#31536D',
   },
@@ -685,7 +685,7 @@ const styles = StyleSheet.create({
   },
   autoSaveMessage: {
     fontSize: 11,
-    color: '#1A7A62',
+    color: '#008A64',
     fontWeight: '700',
     position: 'absolute',
     right: 20,
@@ -703,7 +703,7 @@ const styles = StyleSheet.create({
   label: {
     fontSize: 13,
     fontWeight: '800',
-    color: '#07152E',
+    color: '#102B54',
     marginBottom: 9,
     textTransform: 'uppercase',
     letterSpacing: 0.5,
@@ -725,7 +725,7 @@ const styles = StyleSheet.create({
     marginBottom: 8,
     fontWeight: '600',
   },
-  revisionHelp: { color: '#40536B', fontSize: 13, lineHeight: 19, marginTop: -2, marginBottom: 9 },
+  revisionHelp: { color: '#4F6682', fontSize: 13, lineHeight: 19, marginTop: -2, marginBottom: 9 },
   input: {
     backgroundColor: 'transparent',
     borderWidth: 0,
@@ -735,7 +735,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 4,
     paddingVertical: 14,
     fontSize: 15,
-    color: '#07152E',
+    color: '#102B54',
   },
   inputError: {
     borderColor: '#B42318',
@@ -750,7 +750,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 4,
     paddingVertical: 14,
     fontSize: 15,
-    color: '#07152E',
+    color: '#102B54',
     textAlignVertical: 'top',
     minHeight: 110,
   },
@@ -763,7 +763,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 4,
     paddingVertical: 16,
     fontSize: 15,
-    color: '#07152E',
+    color: '#102B54',
     textAlignVertical: 'top',
     minHeight: 260,
     lineHeight: 24,
@@ -779,7 +779,7 @@ const styles = StyleSheet.create({
   },
   readingTimeLabel: {
     fontSize: 12,
-    color: '#40536B',
+    color: '#4F6682',
     fontWeight: '600',
   },
 
@@ -799,7 +799,7 @@ const styles = StyleSheet.create({
   },
   categoryButtonText: {
     fontSize: 15,
-    color: '#07152E',
+    color: '#102B54',
     fontWeight: '600',
   },
   categoryButtonPlaceholder: {
@@ -827,11 +827,11 @@ const styles = StyleSheet.create({
   previewButtonText: {
     fontSize: 15,
     fontWeight: '700',
-    color: '#07152E',
+    color: '#102B54',
   },
   publishButton: {
     flex: 1,
-    backgroundColor: '#286A9A',
+    backgroundColor: '#075BDB',
     borderRadius: 4,
     paddingVertical: 16,
     alignItems: 'center',
@@ -856,19 +856,19 @@ const styles = StyleSheet.create({
     fontFamily: FONT_DISPLAY,
     fontSize: 26,
     fontWeight: '900',
-    color: '#07152E',
+    color: '#102B54',
     marginBottom: 12,
     letterSpacing: -0.5,
   },
   successText: {
     fontSize: 15,
-    color: '#40536B',
+    color: '#4F6682',
     textAlign: 'center',
     lineHeight: 23,
     marginBottom: 32,
   },
   successButton: {
-    backgroundColor: '#087B84',
+    backgroundColor: '#008A78',
     paddingHorizontal: 32,
     paddingVertical: 16,
     borderRadius: 14,
@@ -882,7 +882,7 @@ const styles = StyleSheet.create({
   // ── MODALS ──
   pickerModal: {
     flex: 1,
-    backgroundColor: '#F2F7FC',
+    backgroundColor: '#F5F9FE',
   },
   pickerHeader: {
     flexDirection: 'row',
@@ -890,7 +890,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 20,
     paddingVertical: 16,
-    backgroundColor: '#173B59',
+    backgroundColor: '#082F80',
     borderBottomWidth: 1,
     borderBottomColor: '#31536D',
   },
@@ -922,8 +922,8 @@ const styles = StyleSheet.create({
     gap: 14,
   },
   pickerOptionActive: {
-    backgroundColor: '#DDF1F0',
-    borderColor: '#12396B',
+    backgroundColor: '#DDF5EC',
+    borderColor: '#082F80',
     borderWidth: 1.5,
   },
   pickerOptionText: {
@@ -932,7 +932,7 @@ const styles = StyleSheet.create({
   pickerOptionName: {
     fontSize: 15,
     fontWeight: '800',
-    color: '#07152E',
+    color: '#102B54',
     marginBottom: 3,
   },
   pickerOptionDesc: {
@@ -952,7 +952,7 @@ const styles = StyleSheet.create({
     borderBottomColor: '#D2DCE7',
   },
   previewClose: {
-    color: '#12396B',
+    color: '#082F80',
     fontSize: 15,
     fontWeight: '700',
   },
@@ -967,7 +967,7 @@ const styles = StyleSheet.create({
   previewCategoryText: {
     fontSize: 11,
     fontWeight: '800',
-    color: '#12396B',
+    color: '#082F80',
     textTransform: 'uppercase',
     letterSpacing: 0.8,
   },
@@ -975,7 +975,7 @@ const styles = StyleSheet.create({
     fontFamily: FONT_DISPLAY,
     fontSize: 26,
     fontWeight: '900',
-    color: '#07152E',
+    color: '#102B54',
     lineHeight: 34,
     marginBottom: 14,
     letterSpacing: -0.5,
@@ -991,14 +991,14 @@ const styles = StyleSheet.create({
   previewSummary: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#40536B',
+    color: '#4F6682',
     lineHeight: 25,
     marginBottom: 22,
   },
   previewBody: {
     fontSize: 16,
     lineHeight: 27,
-    color: '#40536B',
+    color: '#4F6682',
   },
 });
 

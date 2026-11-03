@@ -409,7 +409,7 @@ const ArticleDetailScreen = ({ route, navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F2F7FC',
+    backgroundColor: '#F5F9FE',
   },
   header: {
     flexDirection: 'row',
@@ -419,7 +419,7 @@ const styles = StyleSheet.create({
     paddingVertical: 14,
     borderBottomWidth: 1,
     borderBottomColor: '#31536D',
-    backgroundColor: '#173B59',
+    backgroundColor: '#082F80',
   },
   backButton: {
     padding: 8,
@@ -450,7 +450,7 @@ const styles = StyleSheet.create({
     height: 220,
     borderRadius: 0,
     marginBottom: 20,
-    backgroundColor: '#E5F1FA',
+    backgroundColor: '#E4F2FC',
   },
   categoryBadge: {
     alignSelf: 'flex-start',
@@ -468,14 +468,14 @@ const styles = StyleSheet.create({
     fontFamily: FONT_DISPLAY,
     fontSize: 28,
     fontWeight: '800',
-    color: '#173B59',
+    color: '#082F80',
     lineHeight: 36,
     marginBottom: 14,
     letterSpacing: -0.5,
   },
   summary: {
     fontSize: 16,
-    color: '#526F86',
+    color: '#4F6682',
     lineHeight: 26,
     marginBottom: 20,
     fontWeight: '500',
@@ -492,7 +492,7 @@ const styles = StyleSheet.create({
   metaItem: { flexDirection: 'row', alignItems: 'center', gap: 6 },
   metaText: {
     fontSize: 13,
-    color: '#71889B',
+    color: '#71849C',
     fontWeight: '600',
   },
   authorCard: {
@@ -508,7 +508,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     gap: 6,
     alignItems: 'center',
-    backgroundColor: '#E5F1FA',
+    backgroundColor: '#E4F2FC',
     borderRadius: 100,
     paddingHorizontal: 10,
     paddingVertical: 5,
@@ -516,7 +516,7 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   },
   verifiedBadgeText: {
-    color: '#287B93',
+    color: '#009E73',
     fontSize: 11,
     fontWeight: '800',
   },
@@ -526,13 +526,13 @@ const styles = StyleSheet.create({
   authorName: {
     fontSize: 16,
     fontWeight: '800',
-    color: '#173B59',
+    color: '#082F80',
     marginBottom: 4,
   },
   authorNameRow: { flexDirection: 'row', alignItems: 'center', gap: 6 },
   authorBio: {
     fontSize: 13,
-    color: '#71889B',
+    color: '#71849C',
     fontWeight: '500',
   },
   bodyContainer: {
@@ -541,7 +541,7 @@ const styles = StyleSheet.create({
   body: {
     fontSize: 16,
     lineHeight: 28,
-    color: '#526F86',
+    color: '#4F6682',
     fontWeight: '400',
   },
   footer: {
@@ -553,8 +553,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
   },
   footerActions: { flexDirection: 'row', gap: 9, marginBottom: 10 },
-  secondaryAction: { flex: 1, minHeight: 44, flexDirection: 'row', justifyContent: 'center', alignItems: 'center', gap: 7, backgroundColor: '#DDF1F0', borderRadius: 13 },
-  secondaryActionText: { color: '#12396B', fontSize: 12, fontWeight: '800' },
+  secondaryAction: { flex: 1, minHeight: 44, flexDirection: 'row', justifyContent: 'center', alignItems: 'center', gap: 7, backgroundColor: '#DDF5EC', borderRadius: 13 },
+  secondaryActionText: { color: '#082F80', fontSize: 12, fontWeight: '800' },
   saveButton: {
     width: '100%',
     minHeight: 56,
@@ -563,12 +563,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     gap: 10,
-    backgroundColor: '#087B84',
+    backgroundColor: '#008A78',
   },
-  editArticleButton: { height: 48, flexDirection: 'row', justifyContent: 'center', alignItems: 'center', gap: 8, backgroundColor: '#DDF1F0', borderRadius: 13, marginBottom: 10 },
-  editArticleText: { color: '#12396B', fontSize: 14, fontWeight: '800' },
+  editArticleButton: { height: 48, flexDirection: 'row', justifyContent: 'center', alignItems: 'center', gap: 8, backgroundColor: '#DDF5EC', borderRadius: 13, marginBottom: 10 },
+  editArticleText: { color: '#082F80', fontSize: 14, fontWeight: '800' },
   saveButtonActive: {
-    backgroundColor: '#1A7A62',
+    backgroundColor: '#008A64',
   },
   saveButtonIcon: {
     fontSize: 18,
@@ -599,7 +599,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   retryButton: {
-    backgroundColor: '#087B84',
+    backgroundColor: '#008A78',
     paddingHorizontal: 24,
     paddingVertical: 14,
     borderRadius: 14,

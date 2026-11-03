@@ -252,12 +252,12 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
   },
   cardTitle: {
-    color: '#07152E',
+    color: '#102B54',
     fontSize: 18,
     fontWeight: '700',
   },
   cardSubtitle: {
-    color: '#40536B',
+    color: '#4F6682',
     fontSize: 13,
     marginTop: 5,
     marginBottom: 22,
@@ -267,7 +267,7 @@ const styles = StyleSheet.create({
   /* ── Fields ── */
   fieldGroup: { marginBottom: 16 },
   label: {
-    color: '#07152E',
+    color: '#102B54',
     fontSize: 13,
     fontWeight: '600',
     marginBottom: 8,
@@ -283,7 +283,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 2,
   },
   inputFocused: {
-    borderBottomColor: '#087B84',
+    borderBottomColor: '#008A78',
   },
   inputError: {
     borderBottomColor: '#B42318',
@@ -291,7 +291,7 @@ const styles = StyleSheet.create({
   input: {
     flex: 1,
     minWidth: 0,
-    color: '#07152E',
+    color: '#102B54',
     fontSize: 15,
     fontFamily: FONT_UI,
     paddingVertical: 0,
@@ -321,7 +321,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     gap: 10,
     marginTop: 8,
-    shadowColor: '#173B59',
+    shadowColor: '#082F80',
     shadowOffset: { width: 0, height: 3 },
     shadowOpacity: 0.12,
     shadowRadius: 6,
@@ -329,7 +329,7 @@ const styles = StyleSheet.create({
   },
   submitDisabled: { opacity: 0.65 },
   submitText: {
-    color: '#173B59',
+    color: '#082F80',
     fontSize: 16,
     fontWeight: '700',
     letterSpacing: 0.2,
@@ -344,11 +344,11 @@ const styles = StyleSheet.create({
     marginTop: 24,
   },
   createPrompt: {
-    color: '#40536B',
+    color: '#4F6682',
     fontSize: 14,
   },
   createLink: {
-    color: '#12396B',
+    color: '#082F80',
     fontSize: 14,
     fontWeight: '700',
   },

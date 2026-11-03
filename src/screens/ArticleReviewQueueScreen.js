@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
   heading: { fontFamily: FONT_DISPLAY, fontSize: 26, fontWeight: '800', color: THEME.WHITE },
   subheading: { fontSize: 12, color: '#D2E1ED', marginTop: 3 },
   list: { paddingHorizontal: 20, paddingBottom: 30, flexGrow: 1 },
-  card: { backgroundColor: 'transparent', borderBottomWidth: 1, borderBottomColor: 'rgba(18,57,107,0.12)', paddingVertical: 18, marginBottom: 4 },
+  card: { backgroundColor: 'transparent', borderBottomWidth: 1, borderBottomColor: 'rgba(8,47,128,0.12)', paddingVertical: 18, marginBottom: 4 },
   cardHeading: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 12 },
   badge: { flexDirection: 'row', alignItems: 'center', gap: 6, backgroundColor: THEME.PALE_GREEN, paddingHorizontal: 10, paddingVertical: 6, borderRadius: 20 },
   badgeText: { color: THEME.BRAND_GREEN, fontSize: 11, fontWeight: '800' },

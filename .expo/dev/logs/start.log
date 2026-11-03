@@ -6214,3 +6214,4 @@
 {"_e":"metro:bundling:progress","_t":1793728360863,"id":"3","progress":0.999,"total":1519,"current":1516}
 {"_e":"metro:bundling:progress","_t":1793728360986,"id":"3","progress":0.999,"total":1520,"current":1520}
 {"_e":"metro:bundling:done","_t":1793728362307,"id":"3","total":1520,"ms":37252.3103}
+{"_e":"metro:server_log","_t":1793728638974,"level":"error","data":["[timeout] connection terminated with Device for app='%s' on device='%s' after not responding for %s seconds.","host.exp.exponent","SM-A155F - 16 - API 36","60"]}

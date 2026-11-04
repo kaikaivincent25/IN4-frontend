@@ -6215,3 +6215,19 @@
 {"_e":"metro:bundling:progress","_t":1793728360986,"id":"3","progress":0.999,"total":1520,"current":1520}
 {"_e":"metro:bundling:done","_t":1793728362307,"id":"3","total":1520,"ms":37252.3103}
 {"_e":"metro:server_log","_t":1793728638974,"level":"error","data":["[timeout] connection terminated with Device for app='%s' on device='%s' after not responding for %s seconds.","host.exp.exponent","SM-A155F - 16 - API 36","60"]}
+{"_e":"root:init","_t":1793729492083,"format":"v0-jsonl","version":"57.0.32"}
+{"_e":"env:mode","_t":1793729492085,"nodeEnv":"development","babelEnv":"development","mode":"development"}
+{"_e":"env:load","_t":1793729492091,"mode":"development","files":["../..\\..\\.env"],"env":{"EXPO_PUBLIC_API_URL":"http://10.3.0.42:8000"}}
+{"_e":"devserver:start","_t":1793729492904,"mode":"development","web":true,"baseUrl":"","asyncRoutes":false,"routerRoot":"../..\\..\\app","serverComponents":false,"serverActions":false,"serverRendering":false,"apiRoutes":false,"exporting":false}
+{"_e":"metro:config","_t":1793729493766,"serverRoot":"../..\\..","projectRoot":"../..\\..","exporting":false,"flags":{"autolinkingModuleResolution":false,"serverActions":false,"serverComponents":false,"reactCompiler":false,"optimizeGraph":false,"treeshaking":false,"logbox":false}}
+{"_e":"expo:dev-tools-plugin:load","_t":1793729494404,"plugins":[]}
+{"_e":"metro:instantiate","_t":1793729512020,"atlas":false,"workers":6,"host":"::","port":8081}
+{"_e":"metro:bundling:started","_t":1793729557483,"id":"2","platform":"android","environment":null,"entry":"index.js"}
+{"_e":"metro:bundling:progress","_t":1793729557485,"id":"2","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1793729571071,"id":"2","total":1,"ms":13587.1002}
+{"_e":"root:init","_t":1793795057775,"format":"v0-jsonl","version":"57.0.32"}
+{"_e":"env:mode","_t":1793795057777,"nodeEnv":"development","babelEnv":"development","mode":"development"}
+{"_e":"env:load","_t":1793795057783,"mode":"development","files":["../..\\..\\.env"],"env":{"EXPO_PUBLIC_API_URL":"http://10.3.0.42:8000"}}
+{"_e":"devserver:start","_t":1793795059519,"mode":"development","web":true,"baseUrl":"","asyncRoutes":false,"routerRoot":"../..\\..\\app","serverComponents":false,"serverActions":false,"serverRendering":false,"apiRoutes":false,"exporting":false}
+{"_e":"metro:config","_t":1793795061755,"serverRoot":"../..\\..","projectRoot":"../..\\..","exporting":false,"flags":{"autolinkingModuleResolution":false,"serverActions":false,"serverComponents":false,"reactCompiler":false,"optimizeGraph":false,"treeshaking":false,"logbox":false}}
+{"_e":"expo:dev-tools-plugin:load","_t":1793795064935,"plugins":[]}

@@ -2,13 +2,14 @@
 
 import axios from 'axios';
 import * as SecureStore from 'expo-secure-store';
+import { Platform } from 'react-native';
 
 // ===== CONFIG =====
 
 // Android Studio emulator reaches the host machine at 10.0.2.2.
 // For a physical device, set EXPO_PUBLIC_API_URL to your computer's LAN URL
 // (for example, http://192.168.1.20:8000) in the frontend .env file.
-const API_BASE_URL = (process.env.EXPO_PUBLIC_API_URL || 'http://10.3.0.42:8000').replace(/\/$/, '');
+const API_BASE_URL = process.env.EXPO_PUBLIC_API_URL || 'http://10.3.0.21:8000';
 
 const TIMEOUT = 10000; // 10 second timeout for requests
 
@@ -22,6 +23,29 @@ export const resolveMediaUrl = (path) => {
 const TOKEN_KEYS = {
   ACCESS: 'in4_access_token',
   REFRESH: 'in4_refresh_token',
+};
+
+const getStoredValue = async (key) => {
+  if (Platform.OS === 'web') {
+    return typeof window === 'undefined' ? null : window.sessionStorage.getItem(key);
+  }
+  return SecureStore.getItemAsync(key);
+};
+
+const setStoredValue = async (key, value) => {
+  if (Platform.OS === 'web') {
+    if (typeof window !== 'undefined') window.sessionStorage.setItem(key, value);
+    return;
+  }
+  await SecureStore.setItemAsync(key, value);
+};
+
+const deleteStoredValue = async (key) => {
+  if (Platform.OS === 'web') {
+    if (typeof window !== 'undefined') window.sessionStorage.removeItem(key);
+    return;
+  }
+  await SecureStore.deleteItemAsync(key);
 };
 
 // ===== AXIOS INSTANCE =====
@@ -55,7 +79,7 @@ client.interceptors.request.use(
   async (config) => {
     try {
       // Get token from secure storage
-      const token = await SecureStore.getItemAsync(TOKEN_KEYS.ACCESS);
+      const token = await getStoredValue(TOKEN_KEYS.ACCESS);
       
       if (token) {
         // Add to Authorization header
@@ -99,7 +123,7 @@ client.interceptors.response.use(
       
       try {
         // Get refresh token
-        const refreshToken = await SecureStore.getItemAsync(TOKEN_KEYS.REFRESH);
+        const refreshToken = await getStoredValue(TOKEN_KEYS.REFRESH);
         
         if (!refreshToken) {
           // No refresh token = must re-login
@@ -116,7 +140,7 @@ client.interceptors.response.use(
         const { access } = response.data;
         
         // Store new access token
-        await SecureStore.setItemAsync(TOKEN_KEYS.ACCESS, access);
+        await setStoredValue(TOKEN_KEYS.ACCESS, access);
         
         // Retry original request with new token
         originalRequest.headers.Authorization = `Bearer ${access}`;
@@ -145,8 +169,8 @@ client.interceptors.response.use(
 export const storeAuthTokens = async (accessToken, refreshToken) => {
   try {
     await Promise.all([
-      SecureStore.setItemAsync(TOKEN_KEYS.ACCESS, accessToken),
-      SecureStore.setItemAsync(TOKEN_KEYS.REFRESH, refreshToken),
+      setStoredValue(TOKEN_KEYS.ACCESS, accessToken),
+      setStoredValue(TOKEN_KEYS.REFRESH, refreshToken),
     ]);
   } catch (error) {
     console.error('Failed to store tokens', error);
@@ -159,7 +183,7 @@ export const storeAuthTokens = async (accessToken, refreshToken) => {
  */
 export const getAccessToken = async () => {
   try {
-    return await SecureStore.getItemAsync(TOKEN_KEYS.ACCESS);
+    return await getStoredValue(TOKEN_KEYS.ACCESS);
   } catch (error) {
     console.error('Failed to retrieve access token', error);
     return null;
@@ -173,8 +197,8 @@ export const getAccessToken = async () => {
 export const clearAuthTokens = async () => {
   try {
     await Promise.all([
-      SecureStore.deleteItemAsync(TOKEN_KEYS.ACCESS),
-      SecureStore.deleteItemAsync(TOKEN_KEYS.REFRESH),
+      deleteStoredValue(TOKEN_KEYS.ACCESS),
+      deleteStoredValue(TOKEN_KEYS.REFRESH),
     ]);
   } catch (error) {
     console.error('Failed to clear tokens', error);
@@ -348,6 +372,23 @@ export const expertAPI = {
     const response = await client.post(`/experts/${expertId}/documents/`, form, {
       headers: { 'Content-Type': 'multipart/form-data' },
       timeout: 30000,
+    });
+    return response.data;
+  },
+
+  getVerificationPaymentConfig: async () => {
+    const response = await client.get('/experts/payments/config/');
+    return response.data;
+  },
+
+  getMyVerificationPayment: async () => {
+    const response = await client.get('/experts/me/verification-payment/');
+    return response.data;
+  },
+
+  startVerificationPayment: async (expertId, phoneNumber) => {
+    const response = await client.post(`/experts/${expertId}/payments/`, {
+      phone_number: phoneNumber,
     });
     return response.data;
   },

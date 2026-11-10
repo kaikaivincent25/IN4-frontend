@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { ActivityIndicator, Alert, FlatList, Image, RefreshControl, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { ActivityIndicator, Alert, FlatList, Image, RefreshControl, StyleSheet, TouchableOpacity, View } from 'react-native';
+import Text from '../components/ThemedText';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Feather } from '@expo/vector-icons';
 import { articleAPI, engagementAPI, resolveMediaUrl } from '../api/client';
@@ -98,7 +99,7 @@ const LibraryScreen = ({ navigation, route }) => {
         <Text style={styles.subtitle} numberOfLines={2}>{draft ? `Last edited ${new Date(item.updated_at).toLocaleString()}` : (article?.summary || '')}</Text>
         {!draft ? <View style={styles.authorRow}>
           <Text style={styles.authorName} numberOfLines={1}>{article?.author_name}</Text>
-          {article?.author_verified ? <Feather name="check-circle" size={13} color="#1D9BF0" /> : null}
+          {article?.author_verified ? <Feather name="check-circle" size={13} color={THEME.BRAND_BLUE} /> : null}
           <Text style={styles.articleStats}>{article?.reading_time} min read · {article?.view_count} views</Text>
         </View> : null}
         <View style={styles.openRow}><Text style={styles.openText}>{draft ? 'Continue editing' : 'Read again'}</Text><Feather name="arrow-up-right" size={15} color={THEME.BRAND_GREEN} /></View>
@@ -109,7 +110,7 @@ const LibraryScreen = ({ navigation, route }) => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
-        <TouchableOpacity onPress={() => navigation.goBack()} style={styles.back}><Feather name="arrow-left" size={19} color={THEME.WHITE} /></TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.goBack()} style={styles.back}><Feather name="arrow-left" size={19} color={THEME.TEXT_PRIMARY} /></TouchableOpacity>
         <Text style={styles.heading}>Your Library</Text>
       </View>
       <View style={styles.tabs}>
@@ -136,9 +137,9 @@ const LibraryScreen = ({ navigation, route }) => {
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: THEME.BACKGROUND },
-  header: { flexDirection: 'row', alignItems: 'center', paddingHorizontal: 22, paddingVertical: 20, gap: 14, backgroundColor: THEME.BRAND_DARK },
-  back: { width: 38, height: 38, borderRadius: 4, backgroundColor: 'rgba(255,255,255,0.12)', alignItems: 'center', justifyContent: 'center' },
-  heading: { fontFamily: FONT_DISPLAY, fontSize: 27, fontWeight: '800', color: THEME.WHITE },
+  header: { flexDirection: 'row', alignItems: 'center', paddingHorizontal: 22, paddingVertical: 20, gap: 14, backgroundColor: THEME.PALE_BLUE, borderBottomWidth: 1, borderBottomColor: THEME.BORDER_LIGHT },
+  back: { width: 38, height: 38, borderRadius: 8, backgroundColor: THEME.SURFACE, alignItems: 'center', justifyContent: 'center', borderWidth: 1, borderColor: THEME.BORDER },
+  heading: { fontFamily: FONT_DISPLAY, fontSize: 27, fontWeight: '800', color: THEME.TEXT_PRIMARY },
   tabs: { flexDirection: 'row', gap: 10, paddingHorizontal: 22, paddingBottom: 12 },
   tab: { flexDirection: 'row', alignItems: 'center', gap: 7, borderRadius: 20, paddingHorizontal: 14, paddingVertical: 10, backgroundColor: THEME.SURFACE, borderWidth: 1, borderColor: THEME.BORDER },
   activeTab: { backgroundColor: THEME.BRAND_BLUE, borderColor: THEME.BRAND_BLUE },

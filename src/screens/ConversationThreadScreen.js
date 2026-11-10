@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { ActivityIndicator, Alert, FlatList, Image, KeyboardAvoidingView, Platform, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { ActivityIndicator, Alert, FlatList, Image, KeyboardAvoidingView, Platform, StyleSheet, TextInput, TouchableOpacity, View } from 'react-native';
+import Text from '../components/ThemedText';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Feather } from '@expo/vector-icons';
 import { communityAPI, resolveMediaUrl } from '../api/client';
@@ -64,14 +65,14 @@ const ConversationThreadScreen = ({ route, navigation }) => {
     <SafeAreaView style={styles.container}>
       <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
         <View style={styles.header}>
-          <TouchableOpacity style={styles.back} onPress={() => navigation.goBack()}><Feather name="arrow-left" size={18} color={THEME.WHITE} /></TouchableOpacity>
+          <TouchableOpacity style={styles.back} onPress={() => navigation.goBack()}><Feather name="arrow-left" size={18} color={THEME.TEXT_PRIMARY} /></TouchableOpacity>
           <View style={styles.avatar}>
             {participantProfileImage
               ? <Image source={{ uri: resolveMediaUrl(participantProfileImage) }} style={styles.avatarImage} />
               : <Text style={styles.avatarInitial}>{title?.charAt(0)?.toUpperCase() || 'U'}</Text>}
           </View>
           <View style={{ flex: 1 }}>
-            <View style={styles.headingRow}><Text style={styles.heading} numberOfLines={1}>{title}</Text>{participantVerified ? <Feather name="check-circle" size={13} color="#69C4FF" /> : null}</View>
+            <View style={styles.headingRow}><Text style={styles.heading} numberOfLines={1}>{title}</Text>{participantVerified ? <Feather name="check-circle" size={13} color={THEME.ACCENT_TEAL} /> : null}</View>
             <Text style={styles.subheading} numberOfLines={1}>Re: {articleTitle}</Text>
           </View>
           <View style={styles.live}><View style={styles.liveDot} /><Text style={styles.liveText}>Chat</Text></View>
@@ -101,17 +102,17 @@ const ConversationThreadScreen = ({ route, navigation }) => {
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: THEME.BACKGROUND },
-  header: { flexDirection: 'row', alignItems: 'center', gap: 10, paddingHorizontal: 15, paddingVertical: 14, backgroundColor: THEME.BRAND_DARK, borderBottomWidth: 1, borderColor: '#31536D' },
-  back: { width: 36, height: 36, borderRadius: 4, backgroundColor: 'rgba(255,255,255,0.12)', alignItems: 'center', justifyContent: 'center' },
+  header: { flexDirection: 'row', alignItems: 'center', gap: 10, paddingHorizontal: 15, paddingVertical: 14, backgroundColor: THEME.PALE_BLUE, borderBottomWidth: 1, borderColor: THEME.BORDER_LIGHT },
+  back: { width: 36, height: 36, borderRadius: 8, backgroundColor: THEME.SURFACE, alignItems: 'center', justifyContent: 'center', borderWidth: 1, borderColor: THEME.BORDER },
   avatar: { width: 36, height: 36, borderRadius: 13, backgroundColor: THEME.PALE_GREEN, alignItems: 'center', justifyContent: 'center' },
   avatarImage: { width: '100%', height: '100%', borderRadius: 13 },
   avatarInitial: { color: THEME.BRAND_DARK, fontSize: 15, fontWeight: '800' },
   headingRow: { flexDirection: 'row', alignItems: 'center', gap: 5 },
-  heading: { color: THEME.WHITE, fontFamily: FONT_DISPLAY, fontSize: 16, fontWeight: '800' },
-  subheading: { color: '#D2E1ED', fontSize: 10, marginTop: 2 },
+  heading: { color: THEME.TEXT_PRIMARY, fontFamily: FONT_DISPLAY, fontSize: 16, fontWeight: '800' },
+  subheading: { color: THEME.TEXT_SECONDARY, fontSize: 10, marginTop: 2 },
   live: { flexDirection: 'row', alignItems: 'center', gap: 5 },
   liveDot: { width: 7, height: 7, borderRadius: 4, backgroundColor: THEME.BRAND_GREEN },
-  liveText: { fontSize: 10, color: '#D2E1ED', fontWeight: '700' },
+  liveText: { fontSize: 10, color: THEME.TEXT_SECONDARY, fontWeight: '700' },
   notice: { flexDirection: 'row', alignItems: 'center', gap: 7, paddingHorizontal: 16, paddingVertical: 9, backgroundColor: THEME.PALE_GREEN },
   noticeText: { color: THEME.BRAND_GREEN, fontSize: 11, fontWeight: '600' },
   messages: { paddingHorizontal: 14, paddingVertical: 16, flexGrow: 1, justifyContent: 'flex-end' },

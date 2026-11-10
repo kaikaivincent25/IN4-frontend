@@ -93,7 +93,7 @@ const BottomTabs = () => {
           paddingBottom: Math.max(insets.bottom, 10),
           paddingTop: 8,
         },
-        tabBarActiveTintColor: COLORS.BRAND_GREEN,
+        tabBarActiveTintColor: COLORS.BRAND_BLUE,
         tabBarInactiveTintColor: COLORS.TAB_INACTIVE,
         tabBarLabelStyle: {
           fontFamily: FONT_UI,
@@ -173,7 +173,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   tabIconFocused: {
-    backgroundColor: THEME.PALE_GREEN,
+    backgroundColor: THEME.PALE_BLUE,
   },
 });
 

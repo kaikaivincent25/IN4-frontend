@@ -19,10 +19,10 @@ import {
   Platform,
   TextInput,
   TouchableOpacity,
-  Text,
   ActivityIndicator,
   Alert,
 } from 'react-native';
+import Text from '../components/ThemedText';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { authAPI } from '../api/client';
@@ -359,19 +359,19 @@ const ChangePasswordScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F5F9FE',
+    backgroundColor: THEME.BACKGROUND,
   },
   header: {
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 20,
     paddingVertical: 14,
-    backgroundColor: '#082F80',
+    backgroundColor: THEME.PALE_BLUE,
     borderBottomWidth: 1,
-    borderBottomColor: '#31536D',
+    borderBottomColor: THEME.BORDER_LIGHT,
   },
   headerBack: {
-    color: '#D2E1ED',
+    color: THEME.TEXT_PRIMARY,
     fontSize: 14,
     fontWeight: '700',
   },
@@ -381,7 +381,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 18,
     fontWeight: '800',
-    color: '#FFFFFF',
+    color: THEME.TEXT_PRIMARY,
   },
   content: {
     flex: 1,
@@ -397,12 +397,12 @@ const styles = StyleSheet.create({
     fontFamily: FONT_DISPLAY,
     fontSize: 22,
     fontWeight: '800',
-    color: '#102B54',
+    color: THEME.TEXT_PRIMARY,
     marginBottom: 10,
   },
   introText: {
     fontSize: 15,
-    color: '#4F6682',
+    color: THEME.TEXT_SECONDARY,
     lineHeight: 23,
   },
 
@@ -413,35 +413,34 @@ const styles = StyleSheet.create({
   label: {
     fontSize: 14,
     fontWeight: '700',
-    color: '#102B54',
+    color: THEME.TEXT_PRIMARY,
     marginBottom: 10,
   },
   errorLabel: {
     fontSize: 12,
-    color: '#B42318',
+    color: THEME.ERROR_RED,
     marginBottom: 10,
     fontWeight: '600',
   },
   inputWrapper: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: 'transparent',
-    borderWidth: 0,
-    borderBottomWidth: 1,
-    borderColor: '#B8CAD8',
-    borderRadius: 0,
-    paddingHorizontal: 4,
+    backgroundColor: THEME.INPUT_BG,
+    borderWidth: 1,
+    borderColor: THEME.BORDER,
+    borderRadius: 8,
+    paddingHorizontal: 13,
     height: 54,
   },
   input: {
     flex: 1,
     fontSize: 15,
-    color: '#102B54',
+    color: THEME.TEXT_PRIMARY,
     padding: 0,
   },
   inputError: {
-    borderColor: '#B42318',
-    backgroundColor: '#FEF2F0',
+    borderColor: THEME.ERROR_RED,
+    backgroundColor: THEME.ERROR_LIGHT,
   },
   showIcon: {
     fontSize: 16,
@@ -459,8 +458,8 @@ const styles = StyleSheet.create({
   strengthBar: {
     flex: 1,
     height: 4,
-    borderRadius: 2,
-    backgroundColor: '#D2DCE7',
+    borderRadius: 4,
+    backgroundColor: THEME.BORDER,
   },
   strengthLabel: {
     fontSize: 12,
@@ -472,11 +471,11 @@ const styles = StyleSheet.create({
     marginTop: 14,
     paddingHorizontal: 14,
     paddingVertical: 14,
-    backgroundColor: '#F3F6FA',
+    backgroundColor: THEME.SURFACE_ALT,
     borderRadius: 14,
     gap: 10,
     borderWidth: 1,
-    borderColor: '#D2DCE7',
+    borderColor: THEME.BORDER,
   },
   requirementItem: {
     flexDirection: 'row',
@@ -491,7 +490,7 @@ const styles = StyleSheet.create({
   },
   requirementText: {
     fontSize: 12,
-    color: '#4F6682',
+    color: THEME.TEXT_SECONDARY,
   },
 
   // ── MATCH INDICATOR ──
@@ -505,10 +504,10 @@ const styles = StyleSheet.create({
     marginBottom: 28,
   },
   matchBoxSuccess: {
-    backgroundColor: '#EBF6F2',
+    backgroundColor: THEME.SUCCESS_LIGHT,
   },
   matchBoxError: {
-    backgroundColor: '#FEF2F0',
+    backgroundColor: THEME.ERROR_LIGHT,
   },
   matchIcon: {
     fontSize: 14,
@@ -517,12 +516,12 @@ const styles = StyleSheet.create({
   matchText: {
     fontSize: 12,
     fontWeight: '600',
-    color: '#4F6682',
+    color: THEME.TEXT_SECONDARY,
   },
 
   // ── BUTTON ──
   changeButton: {
-    backgroundColor: '#008A78',
+    backgroundColor: THEME.BRAND_GREEN,
     borderRadius: 14,
     paddingVertical: 16,
     alignItems: 'center',
@@ -543,11 +542,11 @@ const styles = StyleSheet.create({
     gap: 12,
     paddingHorizontal: 16,
     paddingVertical: 14,
-    backgroundColor: '#F3F6FA',
+    backgroundColor: THEME.SURFACE_ALT,
     borderRadius: 14,
     marginBottom: 40,
     borderWidth: 1,
-    borderColor: '#D2DCE7',
+    borderColor: THEME.BORDER,
   },
   securityNoteIcon: {
     fontSize: 18,
@@ -555,7 +554,7 @@ const styles = StyleSheet.create({
   securityNoteText: {
     flex: 1,
     fontSize: 13,
-    color: '#4F6682',
+    color: THEME.TEXT_SECONDARY,
     lineHeight: 19,
   },
 });

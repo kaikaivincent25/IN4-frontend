@@ -17,11 +17,11 @@ import {
   ScrollView,
   TextInput,
   TouchableOpacity,
-  Text,
   ActivityIndicator,
   FlatList,
   Image,
 } from 'react-native';
+import Text from '../components/ThemedText';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { articleAPI, categoryAPI, resolveMediaUrl } from '../api/client';
@@ -180,7 +180,7 @@ const AdvancedSearchScreen = ({ navigation }) => {
         </Text>
         <View style={styles.resultMeta}>
           <Text style={styles.resultAuthor}>{item.author_name}</Text>
-          {item.author_verified ? <Feather name="check-circle" size={13} color="#1D9BF0" /> : null}
+          {item.author_verified ? <Feather name="check-circle" size={13} color={THEME.BRAND_BLUE} /> : null}
           <View style={styles.metaDot} />
           <Text style={styles.resultTime}>
             {item.reading_time} min read
@@ -200,7 +200,7 @@ const AdvancedSearchScreen = ({ navigation }) => {
       {/* Header */}
       <View style={styles.header}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
-          <View style={{ flexDirection: "row", alignItems: "center", gap: 5 }}><Feather name="arrow-left" size={16} color="#D2E1ED" /><Text style={styles.headerBack}>Back</Text></View>
+          <View style={{ flexDirection: "row", alignItems: "center", gap: 5 }}><Feather name="arrow-left" size={16} color={THEME.TEXT_PRIMARY} /><Text style={styles.headerBack}>Back</Text></View>
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Advanced Search</Text>
       </View>
@@ -403,19 +403,19 @@ const AdvancedSearchScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F5F9FE',
+    backgroundColor: THEME.BACKGROUND,
   },
   header: {
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 20,
     paddingVertical: 14,
-    backgroundColor: '#082F80',
+    backgroundColor: THEME.PALE_BLUE,
     borderBottomWidth: 1,
-    borderBottomColor: '#31536D',
+    borderBottomColor: THEME.BORDER_LIGHT,
   },
   headerBack: {
-    color: '#D2E1ED',
+    color: THEME.TEXT_PRIMARY,
     fontSize: 14,
     fontWeight: '700',
   },
@@ -425,7 +425,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 18,
     fontWeight: '800',
-    color: '#FFFFFF',
+    color: THEME.TEXT_PRIMARY,
   },
   content: {
     flex: 1,
@@ -440,7 +440,7 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 13,
     fontWeight: '800',
-    color: '#4F6682',
+    color: THEME.TEXT_SECONDARY,
     marginBottom: 14,
     textTransform: 'uppercase',
     letterSpacing: 0.8,
@@ -450,9 +450,9 @@ const styles = StyleSheet.create({
   searchBox: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#F3F6FA',
+    backgroundColor: THEME.SURFACE_ALT,
     borderWidth: 1.5,
-    borderColor: '#D2DCE7',
+    borderColor: THEME.BORDER,
     borderRadius: 14,
     paddingHorizontal: 16,
     height: 52,
@@ -464,7 +464,7 @@ const styles = StyleSheet.create({
   searchInput: {
     flex: 1,
     fontSize: 15,
-    color: '#102B54',
+    color: THEME.TEXT_PRIMARY,
   },
 
   // ── CATEGORY GRID ──
@@ -481,12 +481,12 @@ const styles = StyleSheet.create({
     paddingVertical: 9,
     borderRadius: 100,
     borderWidth: 1.5,
-    borderColor: '#D2DCE7',
-    backgroundColor: '#F3F6FA',
+    borderColor: THEME.BORDER,
+    backgroundColor: THEME.SURFACE_ALT,
   },
   filterChipActive: {
-    backgroundColor: '#008A78',
-    borderColor: '#082F80',
+    backgroundColor: THEME.BRAND_GREEN,
+    borderColor: THEME.BRAND_DARK,
   },
   filterChipIcon: {
     fontSize: 14,
@@ -494,7 +494,7 @@ const styles = StyleSheet.create({
   filterChipText: {
     fontSize: 12,
     fontWeight: '700',
-    color: '#102B54',
+    color: THEME.TEXT_PRIMARY,
   },
   filterChipTextActive: {
     color: '#FFFFFF',
@@ -511,17 +511,17 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     borderRadius: 100,
     borderWidth: 1.5,
-    borderColor: '#D2DCE7',
-    backgroundColor: '#F3F6FA',
+    borderColor: THEME.BORDER,
+    backgroundColor: THEME.SURFACE_ALT,
   },
   sortChipActive: {
-    backgroundColor: '#008A78',
-    borderColor: '#082F80',
+    backgroundColor: THEME.BRAND_GREEN,
+    borderColor: THEME.BRAND_DARK,
   },
   sortChipText: {
     fontSize: 12,
     fontWeight: '700',
-    color: '#102B54',
+    color: THEME.TEXT_PRIMARY,
   },
   sortChipTextActive: {
     color: '#FFFFFF',
@@ -538,25 +538,25 @@ const styles = StyleSheet.create({
   },
   rangeLabel: {
     fontSize: 11,
-    color: '#61748A',
+    color: THEME.TEXT_TERTIARY,
     fontWeight: '700',
     marginBottom: 8,
     textTransform: 'uppercase',
     letterSpacing: 0.5,
   },
   rangeField: {
-    backgroundColor: '#F3F6FA',
+    backgroundColor: THEME.SURFACE_ALT,
     borderWidth: 1.5,
-    borderColor: '#D2DCE7',
+    borderColor: THEME.BORDER,
     borderRadius: 14,
     paddingHorizontal: 16,
     paddingVertical: 12,
     fontSize: 15,
-    color: '#102B54',
+    color: THEME.TEXT_PRIMARY,
   },
   rangeSeparator: {
     fontSize: 16,
-    color: '#61748A',
+    color: THEME.TEXT_TERTIARY,
     marginBottom: 12,
   },
 
@@ -568,7 +568,7 @@ const styles = StyleSheet.create({
   },
   searchButton: {
     flex: 1,
-    backgroundColor: '#008A78',
+    backgroundColor: THEME.BRAND_GREEN,
     borderRadius: 14,
     paddingVertical: 16,
     alignItems: 'center',
@@ -580,15 +580,15 @@ const styles = StyleSheet.create({
   },
   clearButton: {
     flex: 1,
-    backgroundColor: '#F3F6FA',
+    backgroundColor: THEME.SURFACE_ALT,
     borderWidth: 1.5,
-    borderColor: '#D2DCE7',
+    borderColor: THEME.BORDER,
     borderRadius: 14,
     paddingVertical: 16,
     alignItems: 'center',
   },
   clearButtonText: {
-    color: '#102B54',
+    color: THEME.TEXT_PRIMARY,
     fontSize: 16,
     fontWeight: '700',
   },
@@ -600,7 +600,7 @@ const styles = StyleSheet.create({
   resultsTitle: {
     fontSize: 14,
     fontWeight: '700',
-    color: '#4F6682',
+    color: THEME.TEXT_SECONDARY,
     marginBottom: 14,
   },
   resultsList: {
@@ -609,7 +609,7 @@ const styles = StyleSheet.create({
   resultCard: {
     backgroundColor: 'transparent',
     borderBottomWidth: 1,
-    borderBottomColor: 'rgba(8,47,128,0.12)',
+    borderBottomColor: THEME.BORDER_LIGHT,
     overflow: 'hidden',
   },
   resultCardBody: {
@@ -619,7 +619,7 @@ const styles = StyleSheet.create({
   resultCategory: {
     fontSize: 10,
     fontWeight: '800',
-    color: '#082F80',
+    color: THEME.BRAND_DARK,
     textTransform: 'uppercase',
     letterSpacing: 0.6,
     marginBottom: 5,
@@ -627,13 +627,13 @@ const styles = StyleSheet.create({
   resultTitle: {
     fontSize: 14,
     fontWeight: '800',
-    color: '#102B54',
+    color: THEME.TEXT_PRIMARY,
     marginBottom: 7,
     lineHeight: 21,
   },
   resultSummary: {
     fontSize: 12,
-    color: '#4F6682',
+    color: THEME.TEXT_SECONDARY,
     lineHeight: 18,
     marginBottom: 10,
   },
@@ -645,24 +645,24 @@ const styles = StyleSheet.create({
   },
   resultAuthor: {
     fontSize: 11,
-    color: '#61748A',
+    color: THEME.TEXT_TERTIARY,
     fontWeight: '600',
   },
   metaDot: {
     width: 3,
     height: 3,
     borderRadius: 1.5,
-    backgroundColor: '#D2DCE7',
+    backgroundColor: THEME.BORDER,
     marginHorizontal: 5,
   },
   resultTime: {
     fontSize: 11,
-    color: '#61748A',
+    color: THEME.TEXT_TERTIARY,
     fontWeight: '600',
   },
   resultViews: {
     fontSize: 11,
-    color: '#61748A',
+    color: THEME.TEXT_TERTIARY,
     fontWeight: '600',
   },
   noResults: {

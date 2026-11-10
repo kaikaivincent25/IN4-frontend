@@ -4,12 +4,12 @@ import { Platform } from 'react-native';
 // while leaving controls on the native sans-serif UI font for legibility.
 export const FONT_DISPLAY = Platform.select({
   ios: 'Times New Roman',
-  android: 'serif', // Android's built-in Noto Serif keeps the same editorial feel.
-  default: 'Georgia, Times New Roman, serif',
+  android: 'serif',
+  default: 'Times New Roman, Georgia, serif',
 });
 
 export const FONT_UI = Platform.select({
   ios: 'Avenir Next',
   android: 'sans-serif',
-  default: 'Arial, sans-serif',
+  default: 'Avenir Next, Segoe UI, sans-serif',
 });

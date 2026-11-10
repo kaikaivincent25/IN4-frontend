@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { ActivityIndicator, Alert, FlatList, KeyboardAvoidingView, Platform, RefreshControl, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { ActivityIndicator, Alert, FlatList, KeyboardAvoidingView, Platform, RefreshControl, StyleSheet, TextInput, TouchableOpacity, View } from 'react-native';
+import Text from '../components/ThemedText';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Feather } from '@expo/vector-icons';
 import { communityAPI } from '../api/client';
@@ -76,7 +77,7 @@ const ArticleCommentsScreen = ({ route, navigation }) => {
     <SafeAreaView style={styles.container}>
       <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
         <View style={styles.header}>
-          <TouchableOpacity style={styles.back} onPress={() => navigation.goBack()}><Feather name="arrow-left" size={18} color={THEME.WHITE} /></TouchableOpacity>
+          <TouchableOpacity style={styles.back} onPress={() => navigation.goBack()}><Feather name="arrow-left" size={18} color={THEME.TEXT_PRIMARY} /></TouchableOpacity>
           <View style={{ flex: 1 }}><Text style={styles.heading}>Discussion</Text><Text style={styles.articleTitle} numberOfLines={1}>{article.title}</Text></View>
         </View>
         <View style={styles.composer}>
@@ -103,10 +104,10 @@ const ArticleCommentsScreen = ({ route, navigation }) => {
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: THEME.BACKGROUND },
-  header: { flexDirection: 'row', alignItems: 'center', gap: 12, paddingHorizontal: 20, paddingVertical: 18, borderBottomWidth: 1, borderColor: THEME.BORDER, backgroundColor: THEME.BRAND_DARK },
+  header: { flexDirection: 'row', alignItems: 'center', gap: 12, paddingHorizontal: 20, paddingVertical: 18, borderBottomWidth: 1, borderColor: THEME.BORDER_LIGHT, backgroundColor: THEME.PALE_BLUE },
   back: { width: 38, height: 38, borderRadius: 4, backgroundColor: 'rgba(255,255,255,0.12)', alignItems: 'center', justifyContent: 'center' },
-  heading: { color: THEME.WHITE, fontFamily: FONT_DISPLAY, fontSize: 22, fontWeight: '800' },
-  articleTitle: { color: '#D2E1ED', fontSize: 12, marginTop: 3 },
+  heading: { color: THEME.TEXT_PRIMARY, fontFamily: FONT_DISPLAY, fontSize: 22, fontWeight: '800' },
+  articleTitle: { color: THEME.TEXT_SECONDARY, fontSize: 12, marginTop: 3 },
   composer: { flexDirection: 'row', alignItems: 'flex-end', gap: 9, paddingHorizontal: 18, paddingTop: 16 },
   input: { flex: 1, minHeight: 48, maxHeight: 120, borderRadius: 3, backgroundColor: THEME.WHITE, borderWidth: 0, borderBottomWidth: 1, borderColor: THEME.BORDER, paddingHorizontal: 4, paddingVertical: 12, color: THEME.TEXT_PRIMARY, textAlignVertical: 'top' },
   sendButton: { width: 47, height: 47, borderRadius: 4, backgroundColor: THEME.BRAND_BLUE, alignItems: 'center', justifyContent: 'center' },

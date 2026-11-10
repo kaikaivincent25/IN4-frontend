@@ -6,11 +6,11 @@ import {
   Platform,
   ScrollView,
   StyleSheet,
-  Text,
   TextInput,
   TouchableOpacity,
   View,
 } from 'react-native';
+import Text from '../components/ThemedText';
 import { Feather } from '@expo/vector-icons';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useAuth } from '../context/AuthContext';
@@ -146,7 +146,7 @@ const RegisterScreen = ({ navigation }) => {
             {renderField('passwordConfirm', 'Confirm password', 'Enter your password again', { icon: 'shield', secure: true, autoComplete: 'new-password', textContentType: 'newPassword', returnKeyType: 'done' })}
 
             <TouchableOpacity style={[styles.submitButton, loading && styles.submitDisabled]} onPress={handleRegister} disabled={loading} activeOpacity={0.84} accessibilityRole="button">
-              {loading ? <ActivityIndicator color={C.brandDark} /> : <><Text style={styles.submitText}>Create account</Text><Feather name="arrow-right" size={18} color={C.brandDark} /></>}
+              {loading ? <ActivityIndicator color={C.white} /> : <><Text style={styles.submitText}>Create account</Text><Feather name="arrow-right" size={18} color={C.white} /></>}
             </TouchableOpacity>
           </View>
 
@@ -170,7 +170,7 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     paddingBottom: 32,
   },
-  heroPanel: { marginHorizontal: -28, marginBottom: 28, paddingHorizontal: 28, paddingTop: 24, paddingBottom: 24, backgroundColor: THEME.BRAND_DARK },
+  heroPanel: { marginHorizontal: -28, marginBottom: 24, paddingHorizontal: 28, paddingTop: 22, paddingBottom: 24, backgroundColor: THEME.PALE_BLUE, borderBottomWidth: 1, borderBottomColor: THEME.BORDER },
 
   /* ── Back button ── */
   backButton: {
@@ -202,7 +202,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   brandName: {
-    color: THEME.WHITE,
+    color: THEME.BRAND_DARK,
     fontSize: 20,
     fontWeight: '800',
     letterSpacing: 1.2,
@@ -217,7 +217,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
   },
   trustText: {
-    color: '#D9EAF7',
+    color: THEME.TEXT_SECONDARY,
     fontSize: 11,
     fontWeight: '600',
     letterSpacing: 0.1,
@@ -226,22 +226,22 @@ const styles = StyleSheet.create({
   /* ── Intro ── */
   intro: { marginBottom: 28 },
   eyebrow: {
-    color: '#9ED8E8',
+    color: THEME.BRAND_BLUE,
     fontSize: 11,
     fontWeight: '800',
     letterSpacing: 1.5,
     marginBottom: 10,
   },
   title: {
-    color: THEME.WHITE,
+    color: THEME.TEXT_PRIMARY,
     fontSize: 34,
     fontWeight: '800',
     fontFamily: FONT_DISPLAY,
-    letterSpacing: -0.8,
+    letterSpacing: 0,
     lineHeight: 42,
   },
   subtitle: {
-    color: '#D2E1ED',
+    color: THEME.TEXT_SECONDARY,
     fontSize: 15,
     lineHeight: 24,
     marginTop: 12,
@@ -249,15 +249,19 @@ const styles = StyleSheet.create({
 
   /* ── Card ── */
   card: {
-    backgroundColor: 'transparent',
+    backgroundColor: THEME.SURFACE,
+    borderWidth: 1,
+    borderColor: THEME.BORDER_LIGHT,
+    borderRadius: 8,
+    padding: 20,
   },
   cardTitle: {
-    color: '#102B54',
+    color: THEME.TEXT_PRIMARY,
     fontSize: 18,
     fontWeight: '700',
   },
   cardSubtitle: {
-    color: '#4F6682',
+    color: THEME.TEXT_SECONDARY,
     fontSize: 13,
     marginTop: 5,
     marginBottom: 22,
@@ -267,43 +271,44 @@ const styles = StyleSheet.create({
   /* ── Fields ── */
   fieldGroup: { marginBottom: 16 },
   label: {
-    color: '#102B54',
+    color: THEME.TEXT_PRIMARY,
     fontSize: 13,
     fontWeight: '600',
     marginBottom: 8,
   },
   inputWrap: {
-    height: 56,
+    height: 54,
     flexDirection: 'row',
     alignItems: 'center',
     gap: 11,
-    borderBottomWidth: 1,
-    borderBottomColor: '#B9C6C9',
-    backgroundColor: 'transparent',
-    paddingHorizontal: 2,
+    borderWidth: 1,
+    borderColor: THEME.BORDER,
+    borderRadius: 8,
+    backgroundColor: THEME.INPUT_BG,
+    paddingHorizontal: 12,
   },
   inputFocused: {
-    borderBottomColor: '#008A78',
+    borderColor: THEME.BRAND_BLUE,
   },
   inputError: {
-    borderBottomColor: '#B42318',
+    borderColor: THEME.ERROR_RED,
   },
   input: {
     flex: 1,
     minWidth: 0,
-    color: '#102B54',
+    color: THEME.TEXT_PRIMARY,
     fontSize: 15,
     fontFamily: FONT_UI,
     paddingVertical: 0,
   },
   errorText: {
-    color: '#B42318',
+    color: THEME.ERROR_RED,
     fontSize: 12,
     marginTop: 6,
     fontWeight: '500',
   },
   hint: {
-    color: '#8499A8',
+    color: THEME.TEXT_MUTED,
     fontSize: 11,
     marginTop: 6,
   },
@@ -311,8 +316,8 @@ const styles = StyleSheet.create({
   /* ── Submit button ── */
   submitButton: {
     minHeight: 58,
-    backgroundColor: '#C8E5F8',
-    borderColor: '#A9D3F0',
+    backgroundColor: THEME.BRAND_BLUE,
+    borderColor: THEME.BRAND_BLUE,
     borderWidth: 1,
     borderRadius: 16,
     paddingHorizontal: 20,
@@ -321,7 +326,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     gap: 10,
     marginTop: 8,
-    shadowColor: '#082F80',
+    shadowColor: THEME.SHADOW,
     shadowOffset: { width: 0, height: 3 },
     shadowOpacity: 0.12,
     shadowRadius: 6,
@@ -329,7 +334,7 @@ const styles = StyleSheet.create({
   },
   submitDisabled: { opacity: 0.65 },
   submitText: {
-    color: '#082F80',
+    color: THEME.WHITE,
     fontSize: 16,
     fontWeight: '700',
     letterSpacing: 0.2,
@@ -344,16 +349,16 @@ const styles = StyleSheet.create({
     marginTop: 24,
   },
   createPrompt: {
-    color: '#4F6682',
+    color: THEME.TEXT_SECONDARY,
     fontSize: 14,
   },
   createLink: {
-    color: '#082F80',
+    color: THEME.BRAND_BLUE,
     fontSize: 14,
     fontWeight: '700',
   },
   footer: {
-    color: '#8499A8',
+    color: THEME.TEXT_MUTED,
     fontSize: 12,
     textAlign: 'center',
     marginTop: 'auto',

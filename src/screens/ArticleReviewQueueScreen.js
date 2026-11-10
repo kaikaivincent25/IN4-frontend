@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { ActivityIndicator, Alert, FlatList, RefreshControl, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { ActivityIndicator, Alert, FlatList, RefreshControl, StyleSheet, TextInput, TouchableOpacity, View } from 'react-native';
+import Text from '../components/ThemedText';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Feather } from '@expo/vector-icons';
 import { articleAPI } from '../api/client';
@@ -102,7 +103,7 @@ const ArticleReviewQueueScreen = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
-        <TouchableOpacity onPress={() => navigation.goBack()} style={styles.back}><Feather name="arrow-left" size={19} color={THEME.WHITE} /></TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.goBack()} style={styles.back}><Feather name="arrow-left" size={19} color={THEME.TEXT_PRIMARY} /></TouchableOpacity>
         <View style={{ flex: 1 }}><Text style={styles.heading}>Article Review</Text><Text style={styles.subheading}>Compare proposed edits with the live version</Text></View>
       </View>
       {loading ? <View style={styles.center}><ActivityIndicator size="large" color={THEME.BRAND_BLUE} /></View> : (
@@ -121,12 +122,12 @@ const ArticleReviewQueueScreen = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: THEME.BACKGROUND },
-  header: { flexDirection: 'row', alignItems: 'center', paddingHorizontal: 22, paddingVertical: 20, gap: 14, backgroundColor: THEME.BRAND_DARK },
-  back: { width: 38, height: 38, borderRadius: 4, backgroundColor: 'rgba(255,255,255,0.12)', alignItems: 'center', justifyContent: 'center' },
-  heading: { fontFamily: FONT_DISPLAY, fontSize: 26, fontWeight: '800', color: THEME.WHITE },
-  subheading: { fontSize: 12, color: '#D2E1ED', marginTop: 3 },
+  header: { flexDirection: 'row', alignItems: 'center', paddingHorizontal: 22, paddingVertical: 20, gap: 14, backgroundColor: THEME.PALE_BLUE, borderBottomWidth: 1, borderBottomColor: THEME.BORDER_LIGHT },
+  back: { width: 38, height: 38, borderRadius: 8, backgroundColor: THEME.SURFACE, alignItems: 'center', justifyContent: 'center', borderWidth: 1, borderColor: THEME.BORDER },
+  heading: { fontFamily: FONT_DISPLAY, fontSize: 26, fontWeight: '800', color: THEME.TEXT_PRIMARY },
+  subheading: { fontSize: 12, color: THEME.TEXT_SECONDARY, marginTop: 3 },
   list: { paddingHorizontal: 20, paddingBottom: 30, flexGrow: 1 },
-  card: { backgroundColor: 'transparent', borderBottomWidth: 1, borderBottomColor: 'rgba(8,47,128,0.12)', paddingVertical: 18, marginBottom: 4 },
+  card: { backgroundColor: 'transparent', borderBottomWidth: 1, borderBottomColor: THEME.BORDER_LIGHT, paddingVertical: 18, marginBottom: 4 },
   cardHeading: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 12 },
   badge: { flexDirection: 'row', alignItems: 'center', gap: 6, backgroundColor: THEME.PALE_GREEN, paddingHorizontal: 10, paddingVertical: 6, borderRadius: 20 },
   badgeText: { color: THEME.BRAND_GREEN, fontSize: 11, fontWeight: '800' },
@@ -143,7 +144,7 @@ const styles = StyleSheet.create({
   versionTitle: { fontFamily: FONT_DISPLAY, color: THEME.TEXT_PRIMARY, fontSize: 15, fontWeight: '800', marginBottom: 6 },
   summary: { color: THEME.TEXT_SECONDARY, fontSize: 13, fontWeight: '600', lineHeight: 19, marginBottom: 7 },
   versionBody: { color: THEME.TEXT_SECONDARY, fontSize: 12, lineHeight: 18 },
-  input: { minHeight: 68, borderColor: THEME.BORDER, borderWidth: 0, borderBottomWidth: 1, borderRadius: 0, backgroundColor: 'transparent', padding: 8, color: THEME.TEXT_PRIMARY, textAlignVertical: 'top', marginBottom: 12 },
+  input: { minHeight: 68, borderColor: THEME.BORDER, borderWidth: 1, borderRadius: 8, backgroundColor: THEME.INPUT_BG, padding: 12, color: THEME.TEXT_PRIMARY, textAlignVertical: 'top', marginBottom: 12 },
   actions: { flexDirection: 'row', gap: 9 },
   rejectButton: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 6, paddingHorizontal: 15, minHeight: 46, borderWidth: 1, borderColor: THEME.ERROR_RED, borderRadius: 13 },
   rejectText: { color: THEME.ERROR_RED, fontSize: 13, fontWeight: '800' },

@@ -4,12 +4,12 @@ import {
   Image,
   StyleSheet,
   ScrollView,
-  Text,
   TouchableOpacity,
   ActivityIndicator,
   Alert,
   Share,
 } from 'react-native';
+import Text from '../components/ThemedText';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Feather } from '@expo/vector-icons';
 
@@ -279,13 +279,13 @@ const ArticleDetailScreen = ({ route, navigation }) => {
           style={styles.backButton}
           onPress={() => navigation.goBack()}
         >
-          <View style={styles.backButtonContent}><Feather name="arrow-left" size={16} color="#FFFFFF" /><Text style={styles.backButtonText}>Back</Text></View>
+          <View style={styles.backButtonContent}><Feather name="arrow-left" size={16} color={THEME.TEXT_PRIMARY} /><Text style={styles.backButtonText}>Back</Text></View>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.shareButton}
           onPress={handleShare}
         >
-          <Feather name="share-2" size={18} color="#FFFFFF" />
+          <Feather name="share-2" size={18} color={THEME.TEXT_PRIMARY} />
         </TouchableOpacity>
       </View>
 
@@ -332,13 +332,13 @@ const ArticleDetailScreen = ({ route, navigation }) => {
         <View style={styles.authorCard}>
           {/* Verified Expert badge pill */}
           <View style={styles.verifiedBadge}>
-            <Feather name="shield" size={11} color="#2E7269" />
+            <Feather name="shield" size={11} color={THEME.BRAND_GREEN} />
             <Text style={styles.verifiedBadgeText}>Verified Expert</Text>
           </View>
           <View style={styles.authorInfo}>
             <View style={styles.authorNameRow}>
               <Text style={styles.authorName}>{authorDisplayName}</Text>
-              {article.author_verified ? <Feather name="check-circle" size={15} color="#1D9BF0" /> : null}
+              {article.author_verified ? <Feather name="check-circle" size={15} color={THEME.BRAND_BLUE} /> : null}
             </View>
             <Text style={styles.authorBio}>{authorTitle}</Text>
           </View>
@@ -409,7 +409,7 @@ const ArticleDetailScreen = ({ route, navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F5F9FE',
+    backgroundColor: THEME.BACKGROUND,
   },
   header: {
     flexDirection: 'row',
@@ -418,24 +418,24 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingVertical: 14,
     borderBottomWidth: 1,
-    borderBottomColor: '#31536D',
-    backgroundColor: '#082F80',
+    borderBottomColor: THEME.BORDER_LIGHT,
+    backgroundColor: THEME.PALE_BLUE,
   },
   backButton: {
     padding: 8,
     borderRadius: 4,
-    backgroundColor: 'rgba(255,255,255,0.12)',
+    backgroundColor: THEME.SURFACE,
   },
   backButtonContent: { flexDirection: 'row', alignItems: 'center', gap: 6 },
   backButtonText: {
-    color: '#D2E1ED',
+    color: THEME.TEXT_PRIMARY,
     fontSize: 14,
     fontWeight: '700',
   },
   shareButton: {
     padding: 8,
     borderRadius: 4,
-    backgroundColor: 'rgba(255,255,255,0.12)',
+    backgroundColor: THEME.SURFACE,
   },
   shareIcon: {
     fontSize: 18,
@@ -450,7 +450,7 @@ const styles = StyleSheet.create({
     height: 220,
     borderRadius: 0,
     marginBottom: 20,
-    backgroundColor: '#E4F2FC',
+    backgroundColor: THEME.PALE_BLUE,
   },
   categoryBadge: {
     alignSelf: 'flex-start',
@@ -468,14 +468,14 @@ const styles = StyleSheet.create({
     fontFamily: FONT_DISPLAY,
     fontSize: 28,
     fontWeight: '800',
-    color: '#082F80',
+    color: THEME.BRAND_DARK,
     lineHeight: 36,
     marginBottom: 14,
-    letterSpacing: -0.5,
+    letterSpacing: 0,
   },
   summary: {
     fontSize: 16,
-    color: '#4F6682',
+    color: THEME.TEXT_SECONDARY,
     lineHeight: 26,
     marginBottom: 20,
     fontWeight: '500',
@@ -487,12 +487,12 @@ const styles = StyleSheet.create({
     marginBottom: 24,
     paddingBottom: 20,
     borderBottomWidth: 1,
-    borderBottomColor: '#DFE8F0',
+    borderBottomColor: THEME.BORDER_LIGHT,
   },
   metaItem: { flexDirection: 'row', alignItems: 'center', gap: 6 },
   metaText: {
     fontSize: 13,
-    color: '#71849C',
+    color: THEME.TEXT_TERTIARY,
     fontWeight: '600',
   },
   authorCard: {
@@ -502,13 +502,13 @@ const styles = StyleSheet.create({
     marginBottom: 24,
     borderTopWidth: 1,
     borderBottomWidth: 1,
-    borderColor: '#DFE8F0',
+    borderColor: THEME.BORDER_LIGHT,
   },
   verifiedBadge: {
     flexDirection: 'row',
     gap: 6,
     alignItems: 'center',
-    backgroundColor: '#E4F2FC',
+    backgroundColor: THEME.PALE_BLUE,
     borderRadius: 100,
     paddingHorizontal: 10,
     paddingVertical: 5,
@@ -516,7 +516,7 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   },
   verifiedBadgeText: {
-    color: '#009E73',
+    color: THEME.BRAND_GREEN,
     fontSize: 11,
     fontWeight: '800',
   },
@@ -526,13 +526,13 @@ const styles = StyleSheet.create({
   authorName: {
     fontSize: 16,
     fontWeight: '800',
-    color: '#082F80',
+    color: THEME.BRAND_DARK,
     marginBottom: 4,
   },
   authorNameRow: { flexDirection: 'row', alignItems: 'center', gap: 6 },
   authorBio: {
     fontSize: 13,
-    color: '#71849C',
+    color: THEME.TEXT_TERTIARY,
     fontWeight: '500',
   },
   bodyContainer: {
@@ -541,7 +541,7 @@ const styles = StyleSheet.create({
   body: {
     fontSize: 16,
     lineHeight: 28,
-    color: '#4F6682',
+    color: THEME.TEXT_SECONDARY,
     fontWeight: '400',
   },
   footer: {
@@ -549,12 +549,12 @@ const styles = StyleSheet.create({
     paddingTop: 14,
     paddingBottom: 12,
     borderTopWidth: 1,
-    borderTopColor: '#DFE8F0',
-    backgroundColor: '#FFFFFF',
+    borderTopColor: THEME.BORDER_LIGHT,
+    backgroundColor: THEME.SURFACE,
   },
   footerActions: { flexDirection: 'row', gap: 9, marginBottom: 10 },
-  secondaryAction: { flex: 1, minHeight: 44, flexDirection: 'row', justifyContent: 'center', alignItems: 'center', gap: 7, backgroundColor: '#DDF5EC', borderRadius: 13 },
-  secondaryActionText: { color: '#082F80', fontSize: 12, fontWeight: '800' },
+  secondaryAction: { flex: 1, minHeight: 44, flexDirection: 'row', justifyContent: 'center', alignItems: 'center', gap: 7, backgroundColor: THEME.PALE_GREEN, borderRadius: 13 },
+  secondaryActionText: { color: THEME.BRAND_DARK, fontSize: 12, fontWeight: '800' },
   saveButton: {
     width: '100%',
     minHeight: 56,
@@ -563,12 +563,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     gap: 10,
-    backgroundColor: '#008A78',
+    backgroundColor: THEME.BRAND_GREEN,
   },
-  editArticleButton: { height: 48, flexDirection: 'row', justifyContent: 'center', alignItems: 'center', gap: 8, backgroundColor: '#DDF5EC', borderRadius: 13, marginBottom: 10 },
-  editArticleText: { color: '#082F80', fontSize: 14, fontWeight: '800' },
+  editArticleButton: { height: 48, flexDirection: 'row', justifyContent: 'center', alignItems: 'center', gap: 8, backgroundColor: THEME.PALE_GREEN, borderRadius: 13, marginBottom: 10 },
+  editArticleText: { color: THEME.BRAND_DARK, fontSize: 14, fontWeight: '800' },
   saveButtonActive: {
-    backgroundColor: '#008A64',
+    backgroundColor: THEME.SUCCESS_GREEN,
   },
   saveButtonIcon: {
     fontSize: 18,
@@ -599,7 +599,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   retryButton: {
-    backgroundColor: '#008A78',
+    backgroundColor: THEME.BRAND_GREEN,
     paddingHorizontal: 24,
     paddingVertical: 14,
     borderRadius: 14,

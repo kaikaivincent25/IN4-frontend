@@ -10,12 +10,12 @@ import {
   FlatList,
   TextInput,
   TouchableOpacity,
-  Text,
   ActivityIndicator,
   RefreshControl,
   Image,
   Dimensions,
 } from 'react-native';
+import Text from '../components/ThemedText';
 import { Feather } from '@expo/vector-icons';
 import Animated, { FadeInDown } from 'react-native-reanimated';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -195,7 +195,7 @@ const HomeScreen = ({ navigation }) => {
             <View>
               <View style={styles.authorNameRow}>
                 <Text style={styles.authorName} numberOfLines={1}>{item.author_name}</Text>
-                {item.author_verified ? <Feather name="check-circle" size={13} color="#1D9BF0" /> : null}
+                {item.author_verified ? <Feather name="check-circle" size={13} color={THEME.BRAND_BLUE} /> : null}
               </View>
               <Text style={styles.readTime}>{item.reading_time} min read</Text>
             </View>
@@ -238,7 +238,7 @@ const HomeScreen = ({ navigation }) => {
           <View style={styles.listCardMeta}>
             <View style={styles.listCardAuthorRow}>
               <Text style={styles.listCardAuthor} numberOfLines={1}>{item.author_name}</Text>
-              {item.author_verified ? <Feather name="check-circle" size={12} color="#1D9BF0" /> : null}
+              {item.author_verified ? <Feather name="check-circle" size={12} color={THEME.BRAND_BLUE} /> : null}
             </View>
             <View style={styles.listCardStats}>
               <Feather name="clock" size={11} color={THEME.TEXT_MUTED} />
@@ -276,7 +276,7 @@ const HomeScreen = ({ navigation }) => {
     return (
       <SafeAreaView style={styles.container}>
         <View style={styles.loadingContainer}>
-          <ActivityIndicator size="large" color="#082F80" />
+          <ActivityIndicator size="large" color={THEME.BRAND_BLUE} />
           <Text style={styles.loadingText}>Loading articles…</Text>
         </View>
       </SafeAreaView>
@@ -348,7 +348,7 @@ const HomeScreen = ({ navigation }) => {
           accessibilityLabel="Open advanced search filters"
           hitSlop={6}
         >
-          <Feather name="sliders" size={18} color="#082F80" />
+          <Feather name="sliders" size={18} color={THEME.BRAND_BLUE} />
         </TouchableOpacity>
       </View>
 
@@ -364,7 +364,7 @@ const HomeScreen = ({ navigation }) => {
               ]}
               onPress={() => handleCategoryPress(item.slug)}
             >
-              <Feather name={getCategoryIcon(item.icon_name)} size={14} color={selectedCategory === item.slug ? '#F6F7F3' : THEME.BRAND_BLUE} />
+              <Feather name={getCategoryIcon(item.icon_name)} size={14} color={selectedCategory === item.slug ? THEME.WHITE : THEME.BRAND_BLUE} />
               <Text
                 style={[
                   styles.categoryChipText,
@@ -413,7 +413,7 @@ const HomeScreen = ({ navigation }) => {
           <RefreshControl
             refreshing={refreshing}
             onRefresh={handleRefresh}
-            tintColor="#082F80"
+            tintColor={THEME.BRAND_BLUE}
           />
         }
         onEndReached={handleLoadMore}
@@ -422,7 +422,7 @@ const HomeScreen = ({ navigation }) => {
         ListFooterComponent={
           hasMore && !refreshing && loading ? (
             <View style={styles.loadMoreContainer}>
-              <ActivityIndicator color="#082F80" size="small" />
+              <ActivityIndicator color={THEME.BRAND_BLUE} size="small" />
             </View>
           ) : null
         }
@@ -454,12 +454,14 @@ const styles = StyleSheet.create({
     paddingBottom: 24,
     minHeight: 136,
     marginBottom: 16,
-    backgroundColor: THEME.BRAND_DARK,
+    backgroundColor: THEME.PALE_BLUE,
+    borderBottomWidth: 1,
+    borderBottomColor: THEME.BORDER_LIGHT,
   },
-  heroCaption: { color: '#D2E1ED', fontSize: 13, fontWeight: '500', marginTop: 7 },
+  heroCaption: { color: THEME.TEXT_SECONDARY, fontSize: 13, fontWeight: '500', marginTop: 7 },
   greetingSub: {
     fontSize: 12,
-    color: '#9FB7C9',
+    color: THEME.BRAND_BLUE,
     fontWeight: '700',
     marginBottom: 2,
     letterSpacing: 0.3,
@@ -468,8 +470,8 @@ const styles = StyleSheet.create({
     fontFamily: FONT_DISPLAY,
     fontSize: 29,
     fontWeight: '700',
-    color: '#FFFFFF',
-    letterSpacing: -0.6,
+    color: THEME.TEXT_PRIMARY,
+    letterSpacing: 0,
   },
   logoMini: { width: 44, height: 44 },
 
@@ -538,7 +540,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: THEME.TEXT_PRIMARY,
   },
-  categoryChipTextActive: { color: '#F6F7F3' },
+  categoryChipTextActive: { color: THEME.WHITE },
 
   // ── SECTION HEADER ──
   sectionHeader: {
@@ -554,7 +556,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: '800',
     color: THEME.TEXT_PRIMARY,
-    letterSpacing: -0.3,
+    letterSpacing: 0,
   },
   sectionLink: {
     fontSize: 13,
@@ -575,13 +577,13 @@ const styles = StyleSheet.create({
   featuredImagePlaceholder: {
     width: '100%',
     height: 190,
-    backgroundColor: '#DDF5EC',
+    backgroundColor: THEME.PALE_GREEN,
     justifyContent: 'flex-end',
     padding: 12,
   },
   featuredBadgeWrap: { alignSelf: 'flex-start' },
   featuredBadge: {
-    backgroundColor: '#008A78',
+    backgroundColor: THEME.BRAND_GREEN,
     paddingHorizontal: 10,
     paddingVertical: 4,
     borderRadius: 20,
@@ -592,7 +594,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     letterSpacing: 0.3,
   },
-  featuredBody: { paddingHorizontal: 2, paddingTop: 17, paddingBottom: 19, borderBottomWidth: 1, borderBottomColor: 'rgba(8,47,128,0.12)' },
+  featuredBody: { paddingHorizontal: 2, paddingTop: 17, paddingBottom: 19, borderBottomWidth: 1, borderBottomColor: THEME.BORDER_LIGHT },
   featuredCat: {
     fontSize: 11,
     fontWeight: '800',
@@ -629,7 +631,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  authorAvatarText: { fontSize: 12, fontWeight: '800', color: '#FFFFFF' },
+  authorAvatarText: { fontSize: 12, fontWeight: '800', color: THEME.WHITE },
   authorName: {
     fontSize: 12,
     fontWeight: '700',
@@ -637,10 +639,10 @@ const styles = StyleSheet.create({
     maxWidth: 120,
   },
   authorNameRow: { flexDirection: 'row', alignItems: 'center', gap: 4 },
-  readTime: { fontSize: 11, color: '#61748A', marginTop: 1 },
+  readTime: { fontSize: 11, color: THEME.TEXT_TERTIARY, marginTop: 1 },
   statsRow: { flexDirection: 'row', gap: 12 },
   statItem: { flexDirection: 'row', alignItems: 'center', gap: 4 },
-  statText: { fontSize: 11, color: '#61748A', fontWeight: '500' },
+  statText: { fontSize: 11, color: THEME.TEXT_TERTIARY, fontWeight: '500' },
 
   // ── LIST CARD ──
   listCard: {
@@ -649,18 +651,18 @@ const styles = StyleSheet.create({
     marginHorizontal: 24,
     paddingVertical: 13,
     borderBottomWidth: 1,
-    borderBottomColor: 'rgba(8,47,128,0.10)',
+    borderBottomColor: THEME.BORDER_LIGHT,
   },
   listCardImage: {
     width: 92,
     height: 112,
-    backgroundColor: 'rgba(0,138,120,0.10)',
+    backgroundColor: THEME.PALE_GREEN,
     borderRadius: 0,
   },
   listCardImagePlaceholder: {
     width: 92,
     height: 112,
-    backgroundColor: 'rgba(0,138,120,0.08)',
+    backgroundColor: THEME.PALE_GREEN,
     borderRadius: 0,
   },
   listCardBody: {
@@ -672,7 +674,7 @@ const styles = StyleSheet.create({
   listCardCat: {
     fontSize: 10,
     fontWeight: '800',
-    color: '#082F80',
+    color: THEME.BRAND_DARK,
     textTransform: 'uppercase',
     letterSpacing: 0.6,
     marginBottom: 4,
@@ -701,12 +703,12 @@ const styles = StyleSheet.create({
     width: 3,
     height: 3,
     borderRadius: 1.5,
-    backgroundColor: '#D2DCE7',
+    backgroundColor: THEME.BORDER,
     marginHorizontal: 6,
   },
   listCardTime: {
     fontSize: 11,
-    color: '#61748A',
+    color: THEME.TEXT_TERTIARY,
   },
 
   // ── STATES ──
@@ -718,8 +720,8 @@ const styles = StyleSheet.create({
   errorContainer: { flex: 1, justifyContent: 'center', alignItems: 'center', paddingHorizontal: 24 },
   errorTitle: { fontSize: 17, fontWeight: '700', color: THEME.TEXT_PRIMARY, marginTop: 16, marginBottom: 8 },
   errorText: { fontSize: 14, color: THEME.TEXT_SECONDARY, textAlign: 'center', marginBottom: 24 },
-  retryButton: { backgroundColor: '#008A78', paddingHorizontal: 24, paddingVertical: 13, borderRadius: 14 },
-  retryButtonText: { color: '#FFFFFF', fontWeight: '600', fontSize: 14 },
+  retryButton: { backgroundColor: THEME.BRAND_GREEN, paddingHorizontal: 24, paddingVertical: 13, borderRadius: 14 },
+  retryButtonText: { color: THEME.WHITE, fontWeight: '600', fontSize: 14 },
   loadMoreContainer: { paddingVertical: 20, alignItems: 'center' },
   errorBanner: {
     backgroundColor: COLORS.ERROR_RED + '15',
@@ -732,7 +734,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   errorBannerText: { color: THEME.TEXT_PRIMARY, fontSize: 12, flex: 1, fontWeight: '500' },
-  errorBannerAction: { color: '#082F80', fontWeight: '600', fontSize: 12, marginLeft: 12 },
+  errorBannerAction: { color: THEME.BRAND_DARK, fontWeight: '600', fontSize: 12, marginLeft: 12 },
 });
 
 export default HomeScreen;

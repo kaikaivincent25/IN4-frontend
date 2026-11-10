@@ -3,7 +3,6 @@ import {
   View,
   StyleSheet,
   ScrollView,
-  Text,
   TextInput,
   TouchableOpacity,
   ActivityIndicator,
@@ -13,6 +12,7 @@ import {
   Alert,
   Image,
 } from 'react-native';
+import Text from '../components/ThemedText';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons, Feather } from '@expo/vector-icons';
 import Animated, { FadeInDown } from 'react-native-reanimated';
@@ -417,26 +417,26 @@ const styles = StyleSheet.create({
   backButton: { padding: 10, backgroundColor: THEME.SURFACE, borderRadius: 12, alignSelf: 'flex-start', borderWidth: 1, borderColor: THEME.BORDER },
   content: { flex: 1 },
 
-  profileHeader: { alignItems: 'center', marginHorizontal: 0, marginTop: 0, marginBottom: 12, paddingHorizontal: 24, paddingTop: 28, paddingBottom: 28, borderRadius: 0, backgroundColor: THEME.BRAND_DARK, borderWidth: 0 },
-  expertLabel: { flexDirection: 'row', alignItems: 'center', gap: 7, paddingHorizontal: 12, paddingVertical: 7, marginBottom: 18, borderRadius: 100, backgroundColor: 'rgba(255,255,255,0.10)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.14)' },
-  expertLabelText: { color: '#D9E7E6', fontSize: 10, fontWeight: '800', letterSpacing: 1.5 },
-  avatarContainer: { width: 88, height: 88, borderRadius: 44, backgroundColor: '#D9E7E6', justifyContent: 'center', alignItems: 'center', marginBottom: 17, borderWidth: 3, borderColor: '#FFFFFF' },
+  profileHeader: { alignItems: 'center', marginHorizontal: 0, marginTop: 0, marginBottom: 12, paddingHorizontal: 24, paddingTop: 28, paddingBottom: 28, borderRadius: 0, backgroundColor: THEME.PALE_BLUE, borderBottomWidth: 1, borderColor: THEME.BORDER_LIGHT },
+  expertLabel: { flexDirection: 'row', alignItems: 'center', gap: 7, paddingHorizontal: 12, paddingVertical: 7, marginBottom: 18, borderRadius: 100, backgroundColor: THEME.SURFACE, borderWidth: 1, borderColor: THEME.BORDER },
+  expertLabelText: { color: THEME.BRAND_BLUE, fontSize: 10, fontWeight: '800', letterSpacing: 1.5 },
+  avatarContainer: { width: 88, height: 88, borderRadius: 44, backgroundColor: THEME.PALE_BLUE, justifyContent: 'center', alignItems: 'center', marginBottom: 17, borderWidth: 3, borderColor: THEME.WHITE },
   expertAvatarImage: { width: '100%', height: '100%', borderRadius: 44 },
-  avatarText: { fontFamily: FONT_DISPLAY, fontSize: 40, fontWeight: '700', color: '#102A43' },
-  verifiedBadge: { position: 'absolute', bottom: 2, right: 2, backgroundColor: '#008A64', width: 28, height: 28, borderRadius: 14, justifyContent: 'center', alignItems: 'center', borderWidth: 2.5, borderColor: '#FFFFFF' },
-  expertName: { fontFamily: FONT_DISPLAY, fontSize: 34, fontWeight: '700', color: '#FFFFFF', marginBottom: 7, textAlign: 'center' },
-  profession: { fontSize: 15, color: '#D5E2E0', fontWeight: '600', marginBottom: 15, textAlign: 'center', letterSpacing: 0.2 },
-  organizationContainer: { flexDirection: 'row', alignItems: 'center', gap: 8, backgroundColor: 'rgba(255,255,255,0.08)', paddingHorizontal: 14, paddingVertical: 8, borderRadius: 12, borderWidth: 1, borderColor: 'rgba(255,255,255,0.15)' },
-  organization: { fontSize: 13, color: '#F0F2EF', fontWeight: '600' },
-  profileMeta: { color: '#D5E2E0', fontSize: 13, marginTop: 12 },
+  avatarText: { fontFamily: FONT_DISPLAY, fontSize: 40, fontWeight: '700', color: THEME.TEXT_PRIMARY },
+  verifiedBadge: { position: 'absolute', bottom: 2, right: 2, backgroundColor: THEME.SUCCESS_GREEN, width: 28, height: 28, borderRadius: 14, justifyContent: 'center', alignItems: 'center', borderWidth: 2.5, borderColor: THEME.WHITE },
+  expertName: { fontFamily: FONT_DISPLAY, fontSize: 34, fontWeight: '700', color: THEME.TEXT_PRIMARY, marginBottom: 7, textAlign: 'center' },
+  profession: { fontSize: 15, color: THEME.TEXT_SECONDARY, fontWeight: '600', marginBottom: 15, textAlign: 'center', letterSpacing: 0.2 },
+  organizationContainer: { flexDirection: 'row', alignItems: 'center', gap: 8, backgroundColor: THEME.SURFACE, paddingHorizontal: 14, paddingVertical: 8, borderRadius: 8, borderWidth: 1, borderColor: THEME.BORDER },
+  organization: { fontSize: 13, color: THEME.TEXT_PRIMARY, fontWeight: '600' },
+  profileMeta: { color: THEME.TEXT_SECONDARY, fontSize: 13, marginTop: 12 },
 
   verificationCard: { flexDirection: 'row', alignItems: 'center', gap: 12, marginHorizontal: 20, marginBottom: 12, paddingVertical: 14, paddingHorizontal: 0, borderRadius: 0, backgroundColor: 'transparent', borderWidth: 0, borderBottomWidth: 1, borderColor: THEME.SEPARATOR },
   verificationIcon: { width: 40, height: 40, borderRadius: 12, backgroundColor: THEME.SURFACE, alignItems: 'center', justifyContent: 'center' },
   verificationCopy: { flex: 1 },
-  verificationTitle: { color: '#173C32', fontSize: 13, fontWeight: '800' },
-  verificationDetail: { color: '#547064', fontSize: 11, marginTop: 4 },
+  verificationTitle: { color: THEME.TEXT_PRIMARY, fontSize: 13, fontWeight: '800' },
+  verificationDetail: { color: THEME.TEXT_SECONDARY, fontSize: 11, marginTop: 4 },
 
-  infoSection: { marginHorizontal: 20, marginBottom: 8, paddingHorizontal: 2, paddingVertical: 17, backgroundColor: 'transparent', borderBottomWidth: 1, borderBottomColor: 'rgba(40,75,104,0.12)' },
+  infoSection: { marginHorizontal: 20, marginBottom: 8, paddingHorizontal: 2, paddingVertical: 17, backgroundColor: 'transparent', borderBottomWidth: 1, borderBottomColor: THEME.BORDER_LIGHT },
   infoBlock: { marginBottom: 20 },
   sectionTitle: { fontFamily: FONT_DISPLAY, fontSize: 21, fontWeight: '700', color: THEME.TEXT_PRIMARY, marginBottom: 13 },
   bodyText: { fontSize: 15, color: THEME.TEXT_SECONDARY, lineHeight: 25 },
@@ -444,7 +444,7 @@ const styles = StyleSheet.create({
   tag: { backgroundColor: THEME.SURFACE, paddingHorizontal: 13, paddingVertical: 8, borderRadius: 10, borderWidth: 1, borderColor: THEME.BORDER },
   tagText: { color: THEME.TEXT_SECONDARY, fontSize: 12, fontWeight: '700' },
 
-  articlesSection: { marginHorizontal: 20, marginBottom: 4, paddingHorizontal: 2, paddingVertical: 17, backgroundColor: 'transparent', borderBottomWidth: 1, borderBottomColor: 'rgba(40,75,104,0.12)' },
+  articlesSection: { marginHorizontal: 20, marginBottom: 4, paddingHorizontal: 2, paddingVertical: 17, backgroundColor: 'transparent', borderBottomWidth: 1, borderBottomColor: THEME.BORDER_LIGHT },
   vouchIntro: { color: THEME.TEXT_SECONDARY, fontSize: 12, lineHeight: 18, marginBottom: 12 },
   vouchRow: { borderTopWidth: 1, borderTopColor: THEME.SEPARATOR, paddingVertical: 10 },
   vouchName: { color: THEME.TEXT_PRIMARY, fontWeight: '800', fontSize: 13 },
@@ -456,7 +456,7 @@ const styles = StyleSheet.create({
   profileCommentComposer: { marginBottom: 16 },
   profileCommentInput: { minHeight: 90, maxHeight: 150, backgroundColor: 'transparent', borderWidth: 0, borderBottomWidth: 1, borderColor: THEME.BORDER, borderRadius: 0, padding: 8, color: THEME.TEXT_PRIMARY, textAlignVertical: 'top', fontSize: 13, lineHeight: 19 },
   profileCommentSend: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 7, alignSelf: 'flex-end', marginTop: 9, backgroundColor: THEME.BRAND_BLUE, borderRadius: 11, paddingHorizontal: 14, paddingVertical: 10 },
-  profileCommentSendText: { color: '#FFFFFF', fontSize: 12, fontWeight: '800' },
+  profileCommentSendText: { color: THEME.WHITE, fontSize: 12, fontWeight: '800' },
   disabledButton: { opacity: 0.45 },
   profileComment: { flexDirection: 'row', gap: 10, borderTopWidth: 1, borderTopColor: THEME.SEPARATOR, paddingVertical: 13 },
   profileCommentAvatar: { width: 34, height: 34, borderRadius: 12, backgroundColor: THEME.PALE_BLUE, alignItems: 'center', justifyContent: 'center' },
@@ -476,14 +476,14 @@ const styles = StyleSheet.create({
   articleSummary: { fontSize: 14, color: THEME.TEXT_SECONDARY, lineHeight: 21, marginBottom: 16 },
   articleFooter: { flexDirection: 'row', alignItems: 'center', gap: 18 },
   footerItem: { flexDirection: 'row', alignItems: 'center', gap: 7 },
-  footerText: { fontSize: 12, color: '#61748A', fontWeight: '600' },
+  footerText: { fontSize: 12, color: THEME.TEXT_TERTIARY, fontWeight: '600' },
   emptyState: { paddingVertical: 48, alignItems: 'center' },
-  emptyStateText: { color: '#8899A8', fontSize: 15, marginTop: 14 },
+  emptyStateText: { color: THEME.TEXT_MUTED, fontSize: 15, marginTop: 14 },
 
   errorTitle: { fontSize: 22, fontWeight: '800', color: THEME.TEXT_PRIMARY, marginBottom: 10 },
   errorText: { fontSize: 15, color: THEME.TEXT_SECONDARY, textAlign: 'center', marginBottom: 28 },
-  primaryButton: { backgroundColor: '#008A78', paddingHorizontal: 28, paddingVertical: 15, borderRadius: 14 },
-  primaryButtonText: { color: '#FFFFFF', fontWeight: '700', fontSize: 16 },
+  primaryButton: { backgroundColor: THEME.BRAND_GREEN, paddingHorizontal: 28, paddingVertical: 15, borderRadius: 14 },
+  primaryButtonText: { color: THEME.WHITE, fontWeight: '700', fontSize: 16 },
 });
 
 export default ExpertProfileScreen;

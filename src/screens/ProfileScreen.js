@@ -30,7 +30,8 @@
  */
 
 import React, { useState, useCallback, useEffect } from 'react';
-import { View, StyleSheet, ScrollView, Text, TouchableOpacity, Alert, Modal, TextInput, ActivityIndicator, KeyboardAvoidingView, Platform, Image } from 'react-native';
+import { View, StyleSheet, ScrollView, TouchableOpacity, Alert, Modal, TextInput, ActivityIndicator, KeyboardAvoidingView, Platform, Image } from 'react-native';
+import Text from '../components/ThemedText';
 import * as DocumentPicker from 'expo-document-picker';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useFocusEffect } from '@react-navigation/native';
@@ -43,19 +44,19 @@ import { COLORS as THEME } from '../theme/colors';
 
 // ── DESIGN TOKENS (shared with SavedArticlesScreen) ──
 const COLORS = {
-  INK: '#F5F9FE',
+  INK: THEME.BACKGROUND,
   SURFACE: '#FFFFFF',
-  SURFACE_RAISED: '#E9F2FA',
-  BORDER: '#D4E2EF',
-  GOLD: '#075BDB',
-  GOLD_DIM: '#E4F2FC',
+  SURFACE_RAISED: THEME.SURFACE_ALT,
+  BORDER: THEME.BORDER,
+  GOLD: THEME.BRAND_BLUE,
+  GOLD_DIM: THEME.PALE_BLUE,
   TEAL: '#009E73',
   TEAL_DIM: '#E5F3F7',
   CORAL: THEME.ERROR_RED,
   AMBER: THEME.WARNING,
-  TEXT_PRIMARY: '#082F80',
-  TEXT_SECONDARY: '#4F6682',
-  TEXT_MUTED: '#71849C',
+  TEXT_PRIMARY: THEME.TEXT_PRIMARY,
+  TEXT_SECONDARY: THEME.TEXT_SECONDARY,
+  TEXT_MUTED: THEME.TEXT_TERTIARY,
 };
 
 const ProfileScreen = ({ navigation }) => {
@@ -231,6 +232,7 @@ const ProfileScreen = ({ navigation }) => {
   const isVerified = Boolean(expert && (
     user?.is_provider || expert.is_verified || expert.status === 'verified'
   ));
+  const isAwaitingPayment = !isVerified && expert?.status === 'awaiting_payment';
   const isPending = !isVerified && expert?.status === 'pending';
   const isRejected = !isVerified && expert?.status === 'rejected';
 
@@ -282,8 +284,14 @@ const ProfileScreen = ({ navigation }) => {
               <Text style={[styles.statusStripText, { color: COLORS.AMBER }]}>Application under review</Text>
             </View>
           )}
+          {isAwaitingPayment && (
+            <View style={[styles.statusStrip, { backgroundColor: COLORS.GOLD_DIM }]}>
+              <Ionicons name="card-outline" size={16} color={THEME.BRAND_BLUE} />
+              <Text style={[styles.statusStripText, { color: THEME.BRAND_DARK }]}>Payment required to start review</Text>
+            </View>
+          )}
           {isRejected && (
-            <View style={[styles.statusStrip, { backgroundColor: '#FDECEA' }]}>
+            <View style={[styles.statusStrip, { backgroundColor: THEME.ERROR_LIGHT }]}>
               <Ionicons name="alert-circle" size={16} color={COLORS.CORAL} />
               <Text style={[styles.statusStripText, { color: COLORS.CORAL }]}>Application requires follow-up</Text>
             </View>
@@ -343,6 +351,14 @@ const ProfileScreen = ({ navigation }) => {
               </>
             ) : !expert ? (
               <MenuItem icon="star-outline" label="Apply as Verified Expert" onPress={() => navigation.navigate('ExpertApply')} color={COLORS.GOLD} />
+            ) : isAwaitingPayment ? (
+              <>
+                <View style={styles.pendingBox}>
+                  <Ionicons name="document-text-outline" size={22} color={THEME.BRAND_BLUE} />
+                  <Text style={styles.pendingText}>Your application and documents are saved. Complete M-Pesa payment to enter the verification queue.</Text>
+                </View>
+                <MenuItem icon="card-outline" label="Continue M-Pesa payment" onPress={() => navigation.navigate('ExpertApply')} color={THEME.BRAND_BLUE} />
+              </>
             ) : isRejected ? (
               <View style={styles.pendingBox}>
                 <Ionicons name="alert-circle-outline" size={24} color={COLORS.CORAL} />
@@ -507,10 +523,10 @@ const ProfileScreen = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: COLORS.INK },
-  header: { paddingHorizontal: 24, paddingTop: 22, paddingBottom: 22, backgroundColor: '#082F80' },
-  headerEyebrow: { color: '#9ED8E8', fontSize: 10, fontWeight: '900', letterSpacing: 1.5, marginBottom: 3 },
-  headerTitle: { fontFamily: FONT_DISPLAY, fontSize: 32, fontWeight: '800', color: '#FFFFFF', letterSpacing: -0.5 },
-  headerSubtitle: { color: '#D2E1ED', fontSize: 13, marginTop: 4, lineHeight: 19 },
+  header: { paddingHorizontal: 24, paddingTop: 22, paddingBottom: 22, backgroundColor: THEME.PALE_BLUE, borderBottomWidth: 1, borderBottomColor: THEME.BORDER_LIGHT },
+  headerEyebrow: { color: THEME.BRAND_BLUE, fontSize: 10, fontWeight: '900', letterSpacing: 1.5, marginBottom: 3 },
+  headerTitle: { fontFamily: FONT_DISPLAY, fontSize: 32, fontWeight: '800', color: THEME.TEXT_PRIMARY, letterSpacing: 0 },
+  headerSubtitle: { color: THEME.TEXT_SECONDARY, fontSize: 13, marginTop: 4, lineHeight: 19 },
   content: { flex: 1 },
 
   // ── CREDENTIAL CARD ──

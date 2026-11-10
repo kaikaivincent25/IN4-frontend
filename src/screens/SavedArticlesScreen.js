@@ -1,5 +1,6 @@
 import React, { useState, useCallback, useEffect, useMemo } from 'react';
-import { View, StyleSheet, FlatList, TouchableOpacity, Text, ActivityIndicator, RefreshControl, Alert, Image } from 'react-native';
+import { View, StyleSheet, FlatList, TouchableOpacity, ActivityIndicator, RefreshControl, Alert, Image } from 'react-native';
+import Text from '../components/ThemedText';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Feather } from '@expo/vector-icons';
 import Animated, { FadeInDown } from 'react-native-reanimated';
@@ -169,7 +170,7 @@ const SavedArticlesScreen = ({ navigation }) => {
           <View style={styles.authorSection}>
             <View style={styles.authorNameRow}>
               <Text style={styles.authorName} numberOfLines={1}>{item.article.author_name}</Text>
-              {item.article.author_verified ? <Feather name="check-circle" size={14} color="#1D9BF0" /> : null}
+              {item.article.author_verified ? <Feather name="check-circle" size={14} color={THEME.BRAND_BLUE} /> : null}
             </View>
             <View style={styles.authorStats}>
               <Text style={styles.metaText}>{item.article.reading_time} min read</Text>
@@ -270,25 +271,25 @@ const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: COLORS.INK },
   centerContainer: { flex: 1, justifyContent: 'center', alignItems: 'center', paddingHorizontal: 24 },
 
-  header: { paddingHorizontal: 24, paddingTop: 22, paddingBottom: 20, backgroundColor: '#082F80' },
+  header: { paddingHorizontal: 24, paddingTop: 22, paddingBottom: 20, backgroundColor: THEME.PALE_BLUE, borderBottomWidth: 1, borderBottomColor: THEME.BORDER_LIGHT },
   headerRow: { flexDirection: 'row', alignItems: 'center', gap: 14 },
   backButton: { width: 42, height: 42, alignItems: 'center', justifyContent: 'center', borderRadius: 13, backgroundColor: COLORS.SURFACE, borderWidth: 1, borderColor: COLORS.BORDER },
-  headerEyebrow: { color: '#9ED8E8', fontSize: 10, fontWeight: '800', letterSpacing: 1.3, marginBottom: 2 },
-  headerTitle: { fontFamily: FONT_DISPLAY, fontSize: 30, fontWeight: '700', color: '#FFFFFF' },
+  headerEyebrow: { color: THEME.BRAND_BLUE, fontSize: 10, fontWeight: '800', letterSpacing: 1.3, marginBottom: 2 },
+  headerTitle: { fontFamily: FONT_DISPLAY, fontSize: 30, fontWeight: '700', color: THEME.TEXT_PRIMARY },
 
   statsRow: { flexDirection: 'row', gap: 10, marginTop: 14 },
   statPill: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: 7,
-    backgroundColor: 'rgba(255,255,255,0.12)',
+    backgroundColor: THEME.SURFACE,
     borderWidth: 1.5,
     borderColor: COLORS.BORDER,
     borderRadius: 100,
     paddingHorizontal: 14,
     paddingVertical: 7,
   },
-  statPillText: { fontSize: 12, fontWeight: '700', color: '#FFFFFF' },
+  statPillText: { fontSize: 12, fontWeight: '700', color: THEME.TEXT_PRIMARY },
 
   listContent: { paddingHorizontal: 24, paddingTop: 4, paddingBottom: 110 },
 
@@ -313,7 +314,7 @@ const styles = StyleSheet.create({
   unsaveButton: {
     padding: 8,
     borderRadius: 100,
-    backgroundColor: THEME.ERROR_LIGHT || '#FEF2F0',
+    backgroundColor: THEME.ERROR_LIGHT,
   },
   articleTitle: { fontFamily: FONT_DISPLAY, fontSize: 18, fontWeight: '800', color: COLORS.TEXT_PRIMARY, marginBottom: 8, lineHeight: 25 },
   articleImage: { width: '100%', height: 190, borderRadius: 0, marginBottom: 14, backgroundColor: COLORS.SURFACE_RAISED },

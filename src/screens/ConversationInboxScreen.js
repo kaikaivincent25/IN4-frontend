@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import { ActivityIndicator, Alert, FlatList, Image, RefreshControl, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { ActivityIndicator, Alert, FlatList, Image, RefreshControl, StyleSheet, TextInput, TouchableOpacity, View } from 'react-native';
+import Text from '../components/ThemedText';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useIsFocused } from '@react-navigation/native';
 import { Feather } from '@expo/vector-icons';
@@ -80,7 +81,7 @@ const ConversationInboxScreen = ({ navigation, route }) => {
         <View style={styles.conversationContent}>
           <View style={styles.nameLine}>
             <Text style={styles.name} numberOfLines={1}>{item.other_user_name}</Text>
-            {item.other_user_verified ? <Feather name="check-circle" size={14} color="#1D9BF0" /> : null}
+            {item.other_user_verified ? <Feather name="check-circle" size={14} color={THEME.BRAND_BLUE} /> : null}
             <Text style={styles.date}>{formatConversationTime(timestamp)}</Text>
           </View>
           <View style={styles.contextLine}>
@@ -113,7 +114,7 @@ const ConversationInboxScreen = ({ navigation, route }) => {
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
       <View style={styles.hero}>
-        {!isChatsTab ? <TouchableOpacity style={styles.back} onPress={() => navigation.goBack()}><Feather name="arrow-left" size={18} color={THEME.WHITE} /></TouchableOpacity> : null}
+        {!isChatsTab ? <TouchableOpacity style={styles.back} onPress={() => navigation.goBack()}><Feather name="arrow-left" size={18} color={THEME.TEXT_PRIMARY} /></TouchableOpacity> : null}
         <View style={styles.heroTopline}>
           <View style={styles.heroMark}><Feather name="message-circle" size={17} color={THEME.WHITE} /></View>
           <Text style={styles.eyebrow}>IN4 · PRIVATE DISCUSSIONS</Text>
@@ -166,18 +167,18 @@ const ConversationInboxScreen = ({ navigation, route }) => {
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: THEME.BACKGROUND },
-  hero: { paddingHorizontal: 22, paddingTop: 20, paddingBottom: 22, backgroundColor: THEME.BRAND_DARK },
-  back: { width: 36, height: 36, marginBottom: 12, borderRadius: 4, backgroundColor: 'rgba(255,255,255,0.12)', alignItems: 'center', justifyContent: 'center' },
+  hero: { paddingHorizontal: 22, paddingTop: 20, paddingBottom: 22, backgroundColor: THEME.PALE_BLUE, borderBottomWidth: 1, borderBottomColor: THEME.BORDER_LIGHT },
+  back: { width: 36, height: 36, marginBottom: 12, borderRadius: 8, backgroundColor: THEME.SURFACE, alignItems: 'center', justifyContent: 'center', borderWidth: 1, borderColor: THEME.BORDER },
   heroTopline: { flexDirection: 'row', alignItems: 'center', gap: 9, marginBottom: 14 },
   heroMark: { width: 34, height: 34, borderRadius: 4, backgroundColor: THEME.BRAND_BLUE, alignItems: 'center', justifyContent: 'center' },
-  eyebrow: { color: '#AFC5D6', fontSize: 10, fontWeight: '800', letterSpacing: 1.1 },
-  heading: { fontFamily: FONT_DISPLAY, fontSize: 28, fontWeight: '800', color: THEME.WHITE, letterSpacing: -0.4 },
-  subheading: { color: '#D2E1ED', fontSize: 13, lineHeight: 19, marginTop: 5, maxWidth: 320 },
-  countStrip: { flexDirection: 'row', alignItems: 'center', marginTop: 19, paddingTop: 13, borderTopWidth: 1, borderTopColor: 'rgba(255,255,255,0.16)' },
-  count: { color: THEME.WHITE, fontFamily: FONT_DISPLAY, fontSize: 19, fontWeight: '800', marginRight: 7 },
-  countLabel: { color: THEME.WHITE, fontSize: 12, fontWeight: '700' },
-  countRule: { height: 16, width: 1, backgroundColor: 'rgba(255,255,255,0.25)', marginHorizontal: 11 },
-  countHint: { color: '#AFC5D6', fontSize: 11 },
+  eyebrow: { color: THEME.BRAND_BLUE, fontSize: 10, fontWeight: '800', letterSpacing: 1.1 },
+  heading: { fontFamily: FONT_DISPLAY, fontSize: 28, fontWeight: '800', color: THEME.TEXT_PRIMARY, letterSpacing: 0 },
+  subheading: { color: THEME.TEXT_SECONDARY, fontSize: 13, lineHeight: 19, marginTop: 5, maxWidth: 320 },
+  countStrip: { flexDirection: 'row', alignItems: 'center', marginTop: 19, paddingTop: 13, borderTopWidth: 1, borderTopColor: THEME.BORDER },
+  count: { color: THEME.TEXT_PRIMARY, fontFamily: FONT_DISPLAY, fontSize: 19, fontWeight: '800', marginRight: 7 },
+  countLabel: { color: THEME.TEXT_PRIMARY, fontSize: 12, fontWeight: '700' },
+  countRule: { height: 16, width: 1, backgroundColor: THEME.BORDER, marginHorizontal: 11 },
+  countHint: { color: THEME.TEXT_TERTIARY, fontSize: 11 },
   searchWrap: { flexDirection: 'row', alignItems: 'center', gap: 10, marginHorizontal: 20, marginTop: 18, marginBottom: 20, paddingHorizontal: 13, minHeight: 48, backgroundColor: THEME.WHITE, borderBottomWidth: 1, borderColor: THEME.BORDER },
   searchInput: { flex: 1, minWidth: 0, paddingVertical: 11, color: THEME.TEXT_PRIMARY, fontSize: 13 },
   listHeading: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingHorizontal: 22, paddingBottom: 8 },

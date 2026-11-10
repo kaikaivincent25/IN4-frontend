@@ -1,20 +1,22 @@
+import { COLORS } from './colors';
+
 export const VERIFICATION_BADGES = {
   verified: {
-    color: '#1D9BF0',
-    background: '#EFF8FF',
-    border: '#B6E0FE',
+    color: COLORS.BRAND_BLUE,
+    background: COLORS.PALE_BLUE,
+    border: COLORS.BORDER,
     icon: 'check-circle',
   },
   credentialed: {
-    color: '#0F766E',
-    background: '#F0FDFA',
-    border: '#99F6E4',
+    color: COLORS.BRAND_GREEN,
+    background: COLORS.PALE_GREEN,
+    border: COLORS.BORDER,
     icon: 'award',
   },
   institutional: {
-    color: '#6D28D9',
-    background: '#F5F3FF',
-    border: '#DDD6FE',
+    color: COLORS.ACCENT_TEAL,
+    background: COLORS.SURFACE_ALT,
+    border: COLORS.BORDER,
     icon: 'shield',
   },
 };

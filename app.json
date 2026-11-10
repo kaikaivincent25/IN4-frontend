@@ -17,9 +17,11 @@
       "**/*"
     ],
     "ios": {
+      "bundleIdentifier": "com.in4.mobile",
       "supportsTabletMode": true
     },
     "android": {
+      "package": "com.in4.mobile",
       "softwareKeyboardLayoutMode": "resize",
       "adaptiveIcon": {
         "foregroundImage": "./assets/icon.png",
@@ -32,6 +34,11 @@
     "plugins": [
       "expo-secure-store",
       "expo-status-bar"
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "fa9fb816-b306-4c5e-b32b-eaba6abf1cff"
+      }
+    }
   }
 }

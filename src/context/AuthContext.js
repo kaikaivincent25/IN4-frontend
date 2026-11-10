@@ -29,7 +29,7 @@ const getAuthErrorMessage = (error, action) => {
   if (typeof firstError === 'string') return firstError;
 
   if (!error.response) {
-    return 'Cannot reach the IN4 server. Check that the backend is running and that EXPO_PUBLIC_API_URL points to your computer.';
+    return 'Cannot reach the IN4 test server. Check your internet connection and try again; the server may be waking up.';
   }
   return `${action} failed. Please try again.`;
 };

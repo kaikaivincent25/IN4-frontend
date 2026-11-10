@@ -6,12 +6,10 @@ import { Platform } from 'react-native';
 
 // ===== CONFIG =====
 
-// Android Studio emulator reaches the host machine at 10.0.2.2.
-// For a physical device, set EXPO_PUBLIC_API_URL to your computer's LAN URL
-// (for example, http://192.168.1.20:8000) in the frontend .env file.
-const API_BASE_URL = process.env.EXPO_PUBLIC_API_URL || 'http://10.3.0.21:8000';
+// Override EXPO_PUBLIC_API_URL for local development; EAS testing uses Render.
+const API_BASE_URL = process.env.EXPO_PUBLIC_API_URL || 'https://in4-backend.onrender.com';
 
-const TIMEOUT = 10000; // 10 second timeout for requests
+const TIMEOUT = 60000; // Allow Render time to wake a sleeping test service.
 
 export const resolveMediaUrl = (path) => {
   if (!path) return null;
@@ -273,7 +271,7 @@ export const authAPI = {
     form.append('file', { uri: image.uri, name: image.name, type: image.mimeType || 'image/jpeg' });
     const response = await client.post('/media/profile-image/', form, {
       headers: { 'Content-Type': 'multipart/form-data' },
-      timeout: 30000,
+      timeout: TIMEOUT,
     });
     return response.data;
   },
@@ -371,7 +369,7 @@ export const expertAPI = {
     form.append('file', { uri: document.uri, name: document.name, type: document.mimeType || 'application/pdf' });
     const response = await client.post(`/experts/${expertId}/documents/`, form, {
       headers: { 'Content-Type': 'multipart/form-data' },
-      timeout: 30000,
+      timeout: TIMEOUT,
     });
     return response.data;
   },
@@ -410,7 +408,7 @@ export const articleAPI = {
     form.append('file', { uri: image.uri, name: image.name, type: image.mimeType || 'image/jpeg' });
     const response = await client.post('/media/article-image/', form, {
       headers: { 'Content-Type': 'multipart/form-data' },
-      timeout: 30000,
+      timeout: TIMEOUT,
     });
     return response.data;
   },

@@ -1,11 +1,11 @@
 import { Platform } from 'react-native';
 
-// Keep the editorial character of a Times-style serif on each platform,
+// Keep the editorial character of a refined serif on each platform,
 // while leaving controls on the native sans-serif UI font for legibility.
 export const FONT_DISPLAY = Platform.select({
-  ios: 'Times New Roman',
+  ios: 'Georgia',
   android: 'serif',
-  default: 'Times New Roman, Georgia, serif',
+  default: 'Georgia, Times New Roman, serif',
 });
 
 export const FONT_UI = Platform.select({

@@ -198,7 +198,7 @@ const styles = StyleSheet.create({
     paddingTop: 14,
     paddingBottom: 32,
   },
-  heroPanel: { marginHorizontal: -28, marginTop: -14, marginBottom: 24, paddingHorizontal: 28, paddingTop: 24, paddingBottom: 25, backgroundColor: THEME.PALE_BLUE, borderBottomWidth: 1, borderBottomColor: THEME.BORDER },
+  heroPanel: { marginHorizontal: -28, marginTop: -14, marginBottom: 28, paddingHorizontal: 28, paddingTop: 28, paddingBottom: 30, backgroundColor: THEME.BRAND_DARK, borderBottomLeftRadius: 28, borderBottomRightRadius: 28 },
 
   /* ── Brand row ── */
   brandRow: {
@@ -215,7 +215,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   brandName: {
-    color: THEME.BRAND_DARK,
+    color: THEME.WHITE,
     fontSize: 20,
     fontWeight: '800',
     letterSpacing: 1.2,
@@ -264,10 +264,15 @@ const styles = StyleSheet.create({
   /* ── Card ── */
   card: {
     backgroundColor: THEME.SURFACE,
-    borderWidth: 1,
+    borderWidth: 0,
     borderColor: THEME.BORDER_LIGHT,
-    borderRadius: 8,
-    padding: 20,
+    borderRadius: 18,
+    padding: 22,
+    shadowColor: THEME.SHADOW,
+    shadowOffset: { width: 0, height: 5 },
+    shadowOpacity: 0.08,
+    shadowRadius: 16,
+    elevation: 4,
   },
   cardTitle: {
     color: THEME.TEXT_PRIMARY,
@@ -297,7 +302,7 @@ const styles = StyleSheet.create({
     gap: 11,
     borderWidth: 1,
     borderColor: THEME.BORDER,
-    borderRadius: 8,
+    borderRadius: 12,
     backgroundColor: THEME.INPUT_BG,
     paddingHorizontal: 12,
   },

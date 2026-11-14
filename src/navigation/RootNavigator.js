@@ -87,11 +87,15 @@ const BottomTabs = () => {
         tabBarHideOnKeyboard: true,
         tabBarStyle: {
           backgroundColor: COLORS.TAB_BG,
-          borderTopWidth: 1,
-          borderTopColor: THEME.BORDER_LIGHT || THEME.BORDER,
-          height: 66 + insets.bottom,
-          paddingBottom: Math.max(insets.bottom, 10),
-          paddingTop: 8,
+          borderTopWidth: 0,
+          height: 72 + insets.bottom,
+          paddingBottom: Math.max(insets.bottom, 12),
+          paddingTop: 10,
+          shadowColor: THEME.SHADOW,
+          shadowOffset: { width: 0, height: -4 },
+          shadowOpacity: 0.08,
+          shadowRadius: 16,
+          elevation: 12,
         },
         tabBarActiveTintColor: COLORS.BRAND_BLUE,
         tabBarInactiveTintColor: COLORS.TAB_INACTIVE,
@@ -99,8 +103,8 @@ const BottomTabs = () => {
           fontFamily: FONT_UI,
           fontSize: 10,
           fontWeight: '700',
-          marginTop: 2,
-          letterSpacing: 0.3,
+          marginTop: 4,
+          letterSpacing: 0.5,
         },
         tabBarIconStyle: {
           marginTop: 0,
@@ -166,14 +170,14 @@ const BottomTabs = () => {
 
 const styles = StyleSheet.create({
   tabIcon: {
-    width: 46,
-    height: 30,
-    borderRadius: 15,
+    width: 48,
+    height: 32,
+    borderRadius: 16,
     alignItems: 'center',
     justifyContent: 'center',
   },
   tabIconFocused: {
-    backgroundColor: THEME.PALE_BLUE,
+    backgroundColor: THEME.PALE_GREEN,
   },
 });
 

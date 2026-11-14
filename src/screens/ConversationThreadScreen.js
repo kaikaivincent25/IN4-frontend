@@ -102,7 +102,7 @@ const ConversationThreadScreen = ({ route, navigation }) => {
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: THEME.BACKGROUND },
-  header: { flexDirection: 'row', alignItems: 'center', gap: 10, paddingHorizontal: 15, paddingVertical: 14, backgroundColor: THEME.PALE_BLUE, borderBottomWidth: 1, borderColor: THEME.BORDER_LIGHT },
+  header: { flexDirection: 'row', alignItems: 'center', gap: 10, paddingHorizontal: 15, paddingVertical: 14, backgroundColor: THEME.SURFACE, borderBottomWidth: 1, borderColor: THEME.BORDER_LIGHT },
   back: { width: 36, height: 36, borderRadius: 8, backgroundColor: THEME.SURFACE, alignItems: 'center', justifyContent: 'center', borderWidth: 1, borderColor: THEME.BORDER },
   avatar: { width: 36, height: 36, borderRadius: 13, backgroundColor: THEME.PALE_GREEN, alignItems: 'center', justifyContent: 'center' },
   avatarImage: { width: '100%', height: '100%', borderRadius: 13 },
@@ -119,7 +119,7 @@ const styles = StyleSheet.create({
   messageRow: { flexDirection: 'row', justifyContent: 'flex-start', marginBottom: 9 },
   myMessageRow: { justifyContent: 'flex-end' },
   bubble: { maxWidth: '84%', borderRadius: 16, paddingHorizontal: 13, paddingVertical: 9 },
-  theirBubble: { backgroundColor: THEME.SURFACE, borderWidth: 1, borderColor: THEME.BORDER, borderBottomLeftRadius: 5 },
+  theirBubble: { backgroundColor: THEME.SURFACE, borderWidth: 1, borderColor: THEME.BORDER_LIGHT, borderBottomLeftRadius: 5, shadowColor: THEME.SHADOW, shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.04, shadowRadius: 6, elevation: 1 },
   myBubble: { backgroundColor: THEME.BRAND_BLUE, borderBottomRightRadius: 5 },
   sender: { color: THEME.BRAND_GREEN, fontSize: 10, fontWeight: '800', marginBottom: 4 },
   messageText: { color: THEME.TEXT_PRIMARY, fontSize: 14, lineHeight: 20 },

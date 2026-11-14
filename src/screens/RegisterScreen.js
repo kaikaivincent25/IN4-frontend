@@ -170,7 +170,7 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     paddingBottom: 32,
   },
-  heroPanel: { marginHorizontal: -28, marginBottom: 24, paddingHorizontal: 28, paddingTop: 22, paddingBottom: 24, backgroundColor: THEME.PALE_BLUE, borderBottomWidth: 1, borderBottomColor: THEME.BORDER },
+  heroPanel: { marginHorizontal: -28, marginBottom: 28, paddingHorizontal: 28, paddingTop: 26, paddingBottom: 28, backgroundColor: THEME.BRAND_DARK, borderBottomLeftRadius: 28, borderBottomRightRadius: 28 },
 
   /* ── Back button ── */
   backButton: {
@@ -182,7 +182,7 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   backText: {
-    color: THEME.BRAND_DARK,
+    color: THEME.WHITE,
     fontSize: 13,
     fontWeight: '600',
   },
@@ -250,10 +250,15 @@ const styles = StyleSheet.create({
   /* ── Card ── */
   card: {
     backgroundColor: THEME.SURFACE,
-    borderWidth: 1,
+    borderWidth: 0,
     borderColor: THEME.BORDER_LIGHT,
-    borderRadius: 8,
-    padding: 20,
+    borderRadius: 18,
+    padding: 22,
+    shadowColor: THEME.SHADOW,
+    shadowOffset: { width: 0, height: 5 },
+    shadowOpacity: 0.08,
+    shadowRadius: 16,
+    elevation: 4,
   },
   cardTitle: {
     color: THEME.TEXT_PRIMARY,
@@ -283,7 +288,7 @@ const styles = StyleSheet.create({
     gap: 11,
     borderWidth: 1,
     borderColor: THEME.BORDER,
-    borderRadius: 8,
+    borderRadius: 12,
     backgroundColor: THEME.INPUT_BG,
     paddingHorizontal: 12,
   },

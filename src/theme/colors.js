@@ -3,8 +3,9 @@ export const COLORS = {
   // deep ink for trust, aqua for verification, and apricot for premium cues.
   BRAND_BLUE: '#2F6BFF',
   BRAND_DARK: '#091E2E',
-  BRAND_GREEN: '#11BFA3',
-  ACCENT_TEAL: '#2EE6D6',
+  // Kept as aliases so legacy screen styles render with the same primary hue.
+  BRAND_GREEN: '#2F6BFF',
+  ACCENT_TEAL: '#5B8CFF',
   GOLD: '#FFB86B',
   PALE_GOLD: '#FFF2DE',
   BACKGROUND: '#F7F8FC',
@@ -27,11 +28,11 @@ export const COLORS = {
   SUCCESS_LIGHT: '#E3F5EF',
   WARNING: '#A46516',
   WARNING_LIGHT: '#FFF2DE',
-  PALE_GREEN: '#E4F8F2',
+  PALE_GREEN: '#E7EEFF',
   PALE_BLUE: '#E7EEFF',
   SHADOW: '#102A43',
   OVERLAY: 'rgba(9, 30, 46, 0.62)',
   WHITE: '#FFFFFF',
-  VERIFIED_TEAL: '#11BFA3',
+  VERIFIED_TEAL: '#2F6BFF',
   SEPARATOR: '#DDE6F0',
 };

@@ -15,7 +15,7 @@ const BrandPhotoPanel = ({ source, children, style, imageStyle, overlayStyle }) 
 const styles = StyleSheet.create({
   panel: { overflow: 'hidden', borderRadius: 24 },
   image: { borderRadius: 24 },
-  overlay: { flex: 1, backgroundColor: 'rgba(7, 21, 46, 0.72)', padding: 20 },
+  overlay: { flex: 1, backgroundColor: 'rgba(9, 30, 46, 0.78)', padding: 20 },
 });
 
 export default BrandPhotoPanel;

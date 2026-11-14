@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     padding: 20,
-    backgroundColor: 'rgba(10, 31, 40, 0.78)',
+    backgroundColor: 'rgba(9, 30, 46, 0.82)',
   },
   card: {
     maxHeight: '90%',
